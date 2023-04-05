@@ -19,3 +19,26 @@ export async function makeFound(id: number, db = connection) {
     throw new Error(`An error occured while making pet found: ${error.message}`)
   }
 }
+
+//creates a new lost pet and returns their info
+export function createLost(lostObj, db = connection) {
+  return db('lost')
+    .insert({
+      name: lostObj.name,
+      species: lostObj.species,
+      photo: lostObj.photo,
+      user_id: lostObj.user_id,
+      user_name: lostObj.user_name,
+      user_contact: lostObj.user_contact,
+    })
+    .returning([
+      'id',
+      'name',
+      'species',
+      'photo',
+      'user_id',
+      'user_name',
+      'user_contact',
+    ])
+}
+
