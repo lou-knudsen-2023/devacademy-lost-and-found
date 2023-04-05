@@ -19,6 +19,30 @@ function Header() {
         </div>
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
+            <div className="menu">
+              <ul>
+                <li>
+                  <Link to="">
+                    <h2>Found</h2>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="">
+                    <h2>Lost</h2>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="">
+                    <h2>Found Form</h2>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="">
+                    <h2>Lost Form</h2>
+                  </Link>
+                </li>
+              </ul>
+            </div>
             <div className="navbar-end">
               <IfAuthenticated>
                 <button className="button is-primary" onClick={() => logout()}>
