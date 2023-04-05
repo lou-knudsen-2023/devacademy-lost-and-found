@@ -12,6 +12,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const lost = req.body
-  db.makeFound(id)
+  const { name, species, photo, user_id, user_name, user_contact } = req.body
+  const lost = { name, species, photo, user_id, user_name, user_contact }
+  console.log(lost)
+  db.createLost(lost)
+  return res.json(lost)
 })
