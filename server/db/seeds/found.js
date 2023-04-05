@@ -1,0 +1,68 @@
+exports.seed = (knex) => {
+  return knex('found').insert([
+    {
+      id: 1,
+      species: 'dog',
+      photo: '/images/dogs/dog3.jpeg',
+      user_id: '1',
+      user_name: 'Emily',
+      user_contact: 'emilylovesdogs@gmail.com',
+    },
+    {
+      id: 2,
+      species: 'dog',
+      photo: '/images/dogs/dog4.jpeg',
+      user_id: '2',
+      user_name: 'Belle',
+      user_contact: 'belleiscool@hotmail.com',
+    },
+    {
+      id: 3,
+      species: 'cat',
+      photo: '/images/cats/cat3.jpg',
+      user_id: '3',
+      user_name: 'Ben',
+      user_contact: 'bentheplumber@gmail.com',
+    },
+    {
+      id: 4,
+      species: 'dog',
+      photo: '/images/dogs/dog5.jpeg',
+      user_id: '4',
+      user_name: 'Jasper',
+      user_contact: 'jaspertakesphotos@gmail.com',
+    },
+    {
+      id: 5,
+      species: 'cat',
+      photo: '/images/cats/cat4.jpg',
+      user_id: '5',
+      user_name: 'Sarah',
+      user_contact: 'sarah_smith@hotmail.com',
+    },
+    {
+      id: 6,
+      species: 'cat',
+      photo: '/images/cats/cat5.jpg',
+      user_id: '6',
+      user_name: 'Lisa',
+      user_contact: 'lisa_575@gmail.com',
+    },
+    {
+      id: 7,
+      species: 'dog',
+      photo: '/images/dogs/dog6.jpeg',
+      user_id: '7',
+      user_name: 'Andy',
+      user_contact: 'buzzandwoody@hotmail.com',
+    },
+    {
+      id: 8,
+      species: 'dog',
+      photo: '/images/dogs/dog7.jpeg',
+      user_id: '8',
+      user_name: 'Ellie',
+      user_contact: 'ellieloveslife@xtra.co.nz',
+    },
+  ])
+}
