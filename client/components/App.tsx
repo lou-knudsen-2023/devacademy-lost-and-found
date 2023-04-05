@@ -20,6 +20,7 @@ function App() {
           </Routes>
         </IfAuthenticated>
       </div>
+      <Home />
     </div>
   )
 }
