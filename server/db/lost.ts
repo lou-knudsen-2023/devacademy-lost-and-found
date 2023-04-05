@@ -41,3 +41,4 @@ export function createLost(lostObj, db = connection) {
       'user_contact',
     ])
 }
+
