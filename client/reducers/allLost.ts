@@ -1,4 +1,4 @@
-import { LostAction } from '../actions/LostAnimals'
+import { LostAction } from '../actions/lostAnimals'
 import { LostAnimal } from '../../common/LostAnimal'
 
 const initialState = [] as LostAnimal[]

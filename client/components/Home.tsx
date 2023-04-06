@@ -1,5 +1,3 @@
-import AllFoundAnimals from './FoundAnimals'
-import AllLostAnimals from './LostAnimals'
 import { Link } from 'react-router-dom'
 
 function Home() {
@@ -10,16 +8,10 @@ function Home() {
       </div>
       <div className="container is-fullhd">
         <div className="section" id="list-lost-dogs">
-          <Link to="lost">See all lost dogs</Link>
+          <Link to="lost">See all lost animals</Link>
         </div>
         <div className="section" id="list-found-dogs">
-          <Link to="found">See all found dogs</Link>
-        </div>
-        <div className='section' id="list-lost-cats">
-          <Link to="lost">See all lost cats</Link>
-        </div>
-        <div className='section' id="list-found-cats">
-          <Link to="found">See all found cats</Link>
+          <Link to="found">See all found animals</Link>
         </div>
       </div>
     </div>

@@ -1,14 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 
 import Header from './Header'
-import Login from './Login'
 import Home from './Home'
 import AllFoundAnimals from './FoundAnimals'
 import AllLostAnimals from './LostAnimals'
 import AddFoundForm from './FoundAnimalForm'
 import AddLostForm from './LostAnimalForm'
-
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 function App() {
   return (
@@ -21,11 +18,6 @@ function App() {
         <Route path="foundForm" element={<AddFoundForm />}></Route>
         <Route path="lostForm" element={<AddLostForm />}></Route>
       </Routes>
-      {/* <div>
-        <IfNotAuthenticated>
-          <Login />
-        </IfNotAuthenticated>
-      </div> */}
     </div>
   )
 }
