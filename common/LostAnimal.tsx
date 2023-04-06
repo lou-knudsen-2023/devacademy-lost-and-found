@@ -3,7 +3,7 @@ export interface LostAnimal {
   name: string
   species: string
   photo: string
-  user_id: number
+  user_id: string
   user_name: string
   user_contact: string
 }

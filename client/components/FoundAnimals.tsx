@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { fetchAllFound } from '../actions/FoundAnimals'
+import { setAllFound } from '../actions/foundAnimals'
 import SingleFoundAnimal from './FoundSingleAnimal'
 
 export default function AllFoundAnimals() {
@@ -19,8 +19,8 @@ export default function AllFoundAnimals() {
   )
 
   useEffect(() => {
-    dispatch(fetchAllFound())
-  }, [])
+    dispatch(setAllFound())
+  }, [dispatch])
   return (
     <>
       <section>

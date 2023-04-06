@@ -7,7 +7,6 @@ const server = express()
 
 server.use(express.json())
 server.use(express.static(join('server', 'public')))
-server.use('/api/v1/lost', lost)
 
 server.use('/api/v1/lost', lost)
 server.use('/api/v1/found', found)
