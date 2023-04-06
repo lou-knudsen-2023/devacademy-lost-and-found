@@ -28,12 +28,12 @@ router.post('/', checkJwt, (req: JwtRequest, res) => {
   }
 
   db.createLost(lost)
-  .then((singlePetArr) => {
-    res.json(singlePetArr[0])
-  })
-  .catch((err: Error) => {
-    res.status(500).send(err.message)
-  })
+    .then((singlePetArr) => {
+      res.json(singlePetArr[0])
+    })
+    .catch((err: Error) => {
+      res.status(500).send(err.message)
+    })
 })
 
 //JSON GET HTTPS METHOD API Route
