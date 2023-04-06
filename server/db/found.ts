@@ -1,12 +1,5 @@
 import connection from './connection'
-
-interface foundPet {
-  species: string
-  photo: string
-  user_id: string
-  user_name: string
-  user_contact: string
-}
+import { FoundAnimal } from '../../common/FoundAnimal'
 
 //gets all found pets and returns them
 export function getAllFound(db = connection) {
@@ -29,7 +22,7 @@ export async function makeFound(id: number, db = connection) {
 }
 
 //creates a new found pet and returns their info
-export function createFound(foundObj: foundPet, db = connection) {
+export function createFound(foundObj: FoundAnimal, db = connection) {
   return db('found')
     .insert({
       species: foundObj.species,
