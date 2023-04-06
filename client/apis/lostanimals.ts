@@ -2,12 +2,7 @@ import request from 'superagent'
 import { LostAnimal } from '../../common/LostAnimal'
 
 export function getAllLost(): Promise<LostAnimal[]> {
-  return request
-    .get('/api/v1/lost')
-    .then((res) => {
-      res.body
-    })
-    .catch((err) => err.message)
+  return request.get('/api/v1/lost').then((res) => res.body)
 }
 
 export function addLost(newLost: LostAnimal): Promise<LostAnimal> {

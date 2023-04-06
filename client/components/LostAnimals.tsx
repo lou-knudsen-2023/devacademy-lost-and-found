@@ -1,27 +1,23 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
-//need action to set All the Lost
-//we need to import from actions the fetchsetlostanimal below
+import { fetchAllLost } from '../actions/LostAnimals'
 
 import SingleLostAnimal from './LostSingleAnimal'
-import AddLostForm from './LostAnimalForm'
 
 export default function AllLostAnimals() {
   const dispatch = useAppDispatch()
-  const lostanimals = useAppSelector((state) => {
-    state.lostReducer
-  })
+  const lostanimals = useAppSelector((state) => state.lostReducer)
   // variable using Appselector to the lost animal reducer
 
   useEffect(() => {
-    // dispatching the setLostAnimal(thunkaction) from action
+    dispatch(fetchAllLost())
   }, [])
 
   return (
-    <section>
-      <div className="card-list-container">
-        {/* Do the mapping from the variable that use AppSelector */}
-      </div>
-    </section>
+    <div className="card-list-container">
+      {lostanimals.map((data) => (
+        <SingleLostAnimal lostProp={data} key={data.id} />
+      ))}
+    </div>
   )
 }

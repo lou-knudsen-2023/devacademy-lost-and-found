@@ -56,13 +56,5 @@ exports.seed = (knex) => {
       user_name: 'Andy',
       user_contact: 'buzzandwoody@hotmail.com',
     },
-    {
-      id: 8,
-      species: 'dog',
-      photo: '/images/dogs/dog7.jpg',
-      user_id: '8',
-      user_name: 'Ellie',
-      user_contact: 'ellieloveslife@xtra.co.nz',
-    },
   ])
 }

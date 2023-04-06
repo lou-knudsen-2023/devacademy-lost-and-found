@@ -15,23 +15,17 @@ function App() {
     <div className="container has-text-centered">
       <Header />
       <Routes>
+        <Route path="/" element={<Home />}></Route>
         <Route path="found" element={<AllFoundAnimals />}></Route>
         <Route path="lost" element={<AllLostAnimals />}></Route>
         <Route path="foundForm" element={<AddFoundForm />}></Route>
         <Route path="lostForm" element={<AddLostForm />}></Route>
       </Routes>
-      <div>
+      {/* <div>
         <IfNotAuthenticated>
           <Login />
         </IfNotAuthenticated>
-
-        <IfAuthenticated>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </IfAuthenticated>
-      </div>
-      <Home />
+      </div> */}
     </div>
   )
 }
