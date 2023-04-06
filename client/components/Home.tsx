@@ -8,12 +8,8 @@ function Home() {
         <img src="/images/banner.png" alt="banner" />
         <p>We help reunite lost pets with their owners.</p>
       </div>
-      <div className="list-lost">
-        <AllLostAnimals />
-      </div>
-      <div className="list-found">
-        <AllFoundAnimals />
-      </div>
+      <div className="list-lost">{/* <AllLostAnimals /> */}</div>
+      <div className="list-found">{/* <AllFoundAnimals /> */}</div>
     </div>
   )
 }
