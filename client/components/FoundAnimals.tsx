@@ -1,20 +1,22 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
-//need action to set All the Found Animals
+import { fetchAllFound } from '../actions/FoundAnimals'
 import SingleFoundAnimal from './FoundSingleAnimal'
 
 export default function AllFoundAnimals() {
   const dispatch = useAppDispatch()
-  // variable using Appselector to the found animal reducer
+  const founds = useAppSelector((state) => state.foundReducer)
 
   useEffect(() => {
-    // dispatching the setFoundAnimal(thunkaction) from action
+    dispatch(fetchAllFound())
   }, [])
 
   return (
     <section>
       <div className="card-list-container">
-        {/* Do the mapping from the variable that use AppSelector */}
+        {founds.map((data) => (
+          <SingleFoundAnimal foundProp={data} key={data.id} />
+        ))}
       </div>
     </section>
   )

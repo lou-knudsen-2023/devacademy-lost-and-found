@@ -1,3 +1,6 @@
 import { combineReducers } from 'redux'
+import foundReducer from './allFound'
 
-export default combineReducers({})
+export default combineReducers({
+  foundReducer,
+})

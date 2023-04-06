@@ -1,5 +1,5 @@
 import { FoundAnimal } from '../../common/FoundAnimal'
-// need delete action
+import { fetchDeleteFound } from '../actions/FoundAnimals'
 import { useAppDispatch } from '../hooks'
 
 interface Props {
@@ -24,6 +24,7 @@ export default function SingleFoundAnimal(props: Props) {
           <h2>If you find our loved pet contact us :</h2>
           <p>{user_contact}</p>
         </div>
+        <button onClick={() => dispatch(fetchDeleteFound(id))}>Delete</button>
       </div>
     </div>
   )
