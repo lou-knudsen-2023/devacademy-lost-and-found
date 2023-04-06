@@ -15,17 +15,17 @@ export default function AllLostAnimals() {
 
   return (
     <>
-    <h1>Help me, Im lost</h1>
+      <div className="card-header">
+        <p className='card-header-title'>Help me, Im lost</p>
+      </div>
     <section>
-      <div className="card-list-container">
+      <div>
       {lostanimals.map((data) => (
         <SingleLostAnimal lostProp={data} key={data.id} />
       ))}
     </div>
     </section>
   </>
+
   )
 }
-
-
-
