@@ -20,25 +20,36 @@ export default function SingleLostAnimal(props: Props) {
         </div>
 
         <div className="content" id="species-content">
-          <p className="title is-4">Species: <span className="title is-5 has-text-weight-normal">{species}</span></p>
+          <p className="title is-4">
+            Species:{' '}
+            <span className="title is-5 has-text-weight-normal">{species}</span>
+          </p>
         </div>
 
-
-
-        <div className='content' id="user-name-content">
-          <p className="title is-4">Owner: <span className="title is-5 has-text-weight-normal">{user_name}</span></p>
+        <div className="content" id="user-name-content">
+          <p className="title is-4">
+            Owner:{' '}
+            <span className="title is-5 has-text-weight-normal">
+              {user_name}
+            </span>
+          </p>
         </div>
 
         <br></br>
 
         <div id="contact-details-content">
-          <p className="title is-4">If you find our loved pet contact: <span className="title is-5 has-text-weight-normal">{user_contact}</span></p>
+          <p className="title is-4">
+            If you find our loved pet contact:{' '}
+            <span className="title is-5 has-text-weight-normal">
+              {user_contact}
+            </span>
+          </p>
         </div>
-          <br></br>
+        <br></br>
         <div>
-          <button className='button is-dark'>Found</button>
+          <button className="button is-dark">Found</button>
         </div>
-        
+
         <div id="contact-details-content">
           <p className="title is-4">If you find our loved pet contact us: </p>
           <p>{user_contact}</p>
