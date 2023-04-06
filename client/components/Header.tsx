@@ -33,12 +33,16 @@ function Header() {
                 </li>
                 <li>
                   <Link to="foundForm">
-                    <h2>Found Form</h2>
+                    <IfAuthenticated>
+                      <h2>Found Form</h2>
+                    </IfAuthenticated>
                   </Link>
                 </li>
                 <li>
                   <Link to="lostForm">
-                    <h2>Lost Form</h2>
+                    <IfAuthenticated>
+                      <h2>Lost Form</h2>
+                    </IfAuthenticated>
                   </Link>
                 </li>
               </ul>
