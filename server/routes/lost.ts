@@ -18,3 +18,11 @@ router.post('/', (req, res) => {
   db.createLost(lost)
   return res.json(lost)
 })
+
+router.get('/:id', (req, res) => {
+  getOneLostAnimal(Number(req.params.id))
+    .then((lostanimal) => res.json(lostanimal))
+    .catch((err) => res.status(500).json({ status: 500, error: err.message }))
+})
+
+export default router

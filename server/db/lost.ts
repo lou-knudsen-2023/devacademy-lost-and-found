@@ -42,3 +42,6 @@ export function createLost(lostObj, db = connection) {
     ])
 }
 
+export function getOneLostAnimal(id: number, db = connection) {
+  return db('lost').first().where({ id })
+}
