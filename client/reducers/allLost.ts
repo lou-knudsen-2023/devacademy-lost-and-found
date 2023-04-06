@@ -14,8 +14,6 @@ export default function lostReducer(
       return payload
     case 'ADD_LOST':
       return [...state, payload]
-    case 'UPDATE_LOST':
-      return state.map((data) => (data.id === payload.id ? payload : data))
     case 'DELETE_LOST':
       return state.filter((data) => data.id !== payload)
     default:

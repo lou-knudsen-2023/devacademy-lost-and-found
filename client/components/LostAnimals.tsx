@@ -18,6 +18,7 @@ export default function AllLostAnimals() {
       <div className="card-header">
         <p className="card-header-title">Help me, Im lost</p>
       </div>
+
       <section>
         <div>
           {lostanimals.map((data) => (
