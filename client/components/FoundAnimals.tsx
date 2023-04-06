@@ -10,13 +10,12 @@ export default function AllFoundAnimals() {
     dispatch(fetchAllFound())
   }, [])
   return (
-    <p>test</p>
-    // <section>
-    //   <div className="card-list-container">
-    //     {founds.map((data) => (
-    //       <SingleFoundAnimal foundProp={data} key={data.id} />
-    //     ))}
-    //   </div>
-    // </section>
+    <section>
+      <div className="card-list-container">
+        {founds.map((data) => (
+          <SingleFoundAnimal foundProp={data} key={data.id} />
+        ))}
+      </div>
+    </section>
   )
 }
