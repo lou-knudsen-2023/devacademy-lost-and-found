@@ -24,7 +24,7 @@ export async function makeFound(id: number, db = connection) {
     }
     return false //indicates pet was not moved
   } catch (error) {
-    throw new Error(`An error occured while making pet found: ${error.message}`)
+    throw 500
   }
 }
 
