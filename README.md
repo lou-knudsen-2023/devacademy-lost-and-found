@@ -63,8 +63,8 @@ As a registered user:
 
   | name | purpose |
   | --- | --- |
-  | allFound | Store the array of pets that have been found (from db) |
-  | allLost | Store the array of pets that have been lost (from db) |
+  | foundReducer | Store the array of pets that have been found (from db) |
+  | lostReducer | Store the array of pets that have been lost (from db) |
 
 ## Actions (Client Side)
 
