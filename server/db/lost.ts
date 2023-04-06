@@ -17,18 +17,18 @@ export function getAllLost(db = connection) {
 
 //sends lost Pet with matching ID into found table
 export async function makeFound(id: number, db = connection) {
-  try {
-    const lostPet = await db('lost').select().where('id', id).first()
-    if (lostPet) {
-      await db('found').insert(lostPet)
-      await db('lost').where('id', id).del()
-      return true //indicates pet was successfully moved
+    try{
+        const lostPet = await db('lost').select().where('id', id).first()
+        if (lostPet) {
+            await db('found').insert(lostPet)
+            await db('lost').where('id', id).del()
+            return true //indicates pet was successfully moved
+        }
+        return false //indicates pet was not moved
+    } catch(error) {
+        throw 500
     }
-    return false //indicates pet was not moved
-  } catch (error) {
-    throw new Error(`An error occured while making pet found: ${error.message}`)
-  }
-}
+  } 
 
 //creates a new lost pet and returns their info
 export function createLost(lostObj: lostPet, db = connection) {
