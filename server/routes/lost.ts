@@ -17,7 +17,6 @@ router.post('/', (req, res) => {
   db.createLost(lost)
   .then((singlePetArr) => {
     res.json(singlePetArr[0])
-    console.log(singlePetArr[0])
   })
   .catch((err: Error) => {
     res.status(500).send(err.message)
