@@ -1,21 +1,28 @@
 import AllFoundAnimals from './FoundAnimals'
 import AllLostAnimals from './LostAnimals'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
     <div className="container">
       <div className="header-block">
-        <img src="/images/banner.png" alt="banner" />
         <p>We help reunite lost pets with their owners.</p>
       </div>
-
-      <div className="list-lost">
-        <AllLostAnimals />
+      <div className="container is-fullhd">
+        <div className="section" id="list-lost-dogs">
+          <Link to="lost">See all lost dogs</Link>
+        </div>
+        <div className="section" id="list-found-dogs">
+          <Link to="found">See all found dogs</Link>
+        </div>
+        <div className='section' id="list-lost-cats">
+          <Link to="lost">See all lost cats</Link>
+        </div>
+        <div className='section' id="list-found-cats">
+          <Link to="found">See all found cats</Link>
+        </div>
       </div>
-
-      <div className="list-found">{/* <AllFoundAnimals /> */}</div>
     </div>
   )
 }
-
 export default Home

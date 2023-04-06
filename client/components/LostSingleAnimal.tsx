@@ -11,24 +11,43 @@ export default function SingleLostAnimal(props: Props) {
   const dispatch = useAppDispatch()
 
   return (
-    <div className="lost-container">
-      <img className="img_size" src={photo} alt={species} />
-      <div className="text-body">
-        <div className="title-card">
-          <h1>{name}</h1>
-        </div>
-        <div className="card-text-bottom">
-          <h2>Species:</h2>
-          <p>{species}</p>
-          <br></br>
-          <h2>Owner:</h2>
-          <p>{user_name}</p>
-          <br></br>
-          <h2>If you find our loved pet contact us :</h2>
-          <p>{user_contact}</p>
-        </div>
+    <div className="card">
+      <div className='card-image'>
+        <figure className="image is-4by3">
+          <img src={photo} alt={species}/>
+        </figure> 
       </div>
-      <button>Found</button>
+
+      <div className="card-content">
+        <div className="card-header">
+          <p className='card-header-title'>{name}</p>
+        </div>
+    
+          <div id="species-content">
+            <p className="title is-4">Species: </p>
+            <p>{species}</p>
+          </div>
+
+            <br></br>
+
+            <div id="user-name-content">
+            <p className="title is-4">Owner: </p>
+            <p>{user_name}</p>
+          </div>
+
+            <br></br>
+
+          <div id="contact-details-content">
+            <p className="title is-4">If you find our loved pet contact us: </p>
+            <p>{user_contact}</p>
+          </div>
+          {/* if we want to include when the card was posted */}
+          {/* <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> */}
+
+      </div>
+      <div>
+        <button className='button is-dark'>Found</button>
+      </div>
       {/* Could be using delete button when someone click found, therefore it will be excluded from the list */}
     </div>
   )
