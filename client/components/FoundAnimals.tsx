@@ -8,7 +8,7 @@ export default function AllFoundAnimals() {
   const founds = useAppSelector((state) => state.foundReducer)
   useEffect(() => {
     dispatch(fetchAllFound())
-  }, [])
+  }, [dispatch])
   return (
     <section>
       <div className="card-list-container">

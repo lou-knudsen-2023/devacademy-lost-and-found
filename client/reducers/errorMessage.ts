@@ -1,5 +1,5 @@
-import { FoundAnimal } from '../../common/FoundAnimal'
 import { FoundAction } from '../actions/FoundAnimals'
+
 export default function errorState(state = '', action: FoundAction): string {
   const { type } = action
 
