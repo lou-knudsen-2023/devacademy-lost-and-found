@@ -22,22 +22,22 @@ function Header() {
             <div className="menu">
               <ul>
                 <li>
-                  <Link to="">
+                  <Link to="found">
                     <h2>Found</h2>
                   </Link>
                 </li>
                 <li>
-                  <Link to="">
+                  <Link to="lost">
                     <h2>Lost</h2>
                   </Link>
                 </li>
                 <li>
-                  <Link to="">
+                  <Link to="foundForm">
                     <h2>Found Form</h2>
                   </Link>
                 </li>
                 <li>
-                  <Link to="">
+                  <Link to="lostForm">
                     <h2>Lost Form</h2>
                   </Link>
                 </li>
