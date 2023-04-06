@@ -1,6 +1,7 @@
 import { FoundAnimal } from '../../common/FoundAnimal'
 import { fetchDeleteFound } from '../actions/FoundAnimals'
 import { useAppDispatch } from '../hooks'
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 interface Props {
   foundProp: FoundAnimal
@@ -21,8 +22,13 @@ export default function SingleFoundAnimal(props: Props) {
           <h2>Owner:</h2>
           <p>{user_name}</p>
           <br></br>
-          <h2>If you find our loved pet contact us :</h2>
-          <p>{user_contact}</p>
+          <IfAuthenticated>
+            <h2>If you find our loved pet contact us :</h2>
+            <p>{user_contact}</p>
+          </IfAuthenticated>
+          <IfNotAuthenticated>
+            <p>Please Log In</p>
+          </IfNotAuthenticated>
         </div>
         {/* <button onClick={() => dispatch(fetchDeleteFound(id))}>Delete</button> */}
       </div>
