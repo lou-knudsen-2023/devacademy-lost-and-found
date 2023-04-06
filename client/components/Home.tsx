@@ -8,22 +8,21 @@ function Home() {
       <div className="header-block">
         <p>We help reunite lost pets with their owners.</p>
       </div>
-      <div className="list-container">
-        <div className="list-lost-dogs">
+      <div className="container is-fullhd">
+        <div className="section" id="list-lost-dogs">
           <Link to="lost">See all lost dogs</Link>
         </div>
-        <div className="list-found-dogs">
+        <div className="section" id="list-found-dogs">
           <Link to="found">See all found dogs</Link>
         </div>
-        <div className="list-lost-cats">
+        <div className='section' id="list-lost-cats">
           <Link to="lost">See all lost cats</Link>
         </div>
-        <div className="list-found-cats">
+        <div className='section' id="list-found-cats">
           <Link to="found">See all found cats</Link>
         </div>
       </div>
     </div>
   )
 }
-
 export default Home
