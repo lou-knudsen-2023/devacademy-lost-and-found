@@ -2,7 +2,7 @@ import request from 'superagent'
 import { FoundAnimal } from '../../common/FoundAnimal'
 
 export function getAllFound(): Promise<FoundAnimal[]> {
-  return request.get('').then((res) => res.body)
+  return request.get('/api/v1/found').then((res) => res.body)
 }
 
 export function addFound(newFound: FoundAnimal): Promise<FoundAnimal> {
