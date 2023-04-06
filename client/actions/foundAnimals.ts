@@ -6,7 +6,6 @@ export type FoundAction =
   | { type: 'ADD_FOUND'; payload: FoundAnimal }
   | { type: 'SET_FOUND'; payload: FoundAnimal[] }
   | { type: 'DELETE_FOUND'; payload: number }
-  | { type: 'SHOW_ERROR'; payload: string }
 
 export function receiveFound(found: FoundAnimal[]): FoundAction {
   return {
@@ -15,61 +14,54 @@ export function receiveFound(found: FoundAnimal[]): FoundAction {
   }
 }
 
-export function requestFound(new_found: FoundAnimal): FoundAction {
+export function addingFound(newFound: FoundAnimal): FoundAction {
   return {
     type: 'ADD_FOUND',
-    payload: new_found,
+    payload: newFound,
   }
 }
 
-export function delFound(found_id: number): FoundAction {
+export function delFound(foundId: number): FoundAction {
   return {
     type: 'DELETE_FOUND',
-    payload: found_id,
-  }
-}
-
-export function showError(errorMessage: string): FoundAction {
-  return {
-    type: 'SHOW_ERROR',
-    payload: errorMessage,
+    payload: foundId,
   }
 }
 
 //Fetching to dataBase
 
-export function fetchAllFound(): ThunkAction {
+export function setAllFound(): ThunkAction {
   return (dispatch) => {
     return getAllFound()
       .then((found) => {
         dispatch(receiveFound(found))
       })
       .catch((err) => {
-        dispatch(showError(err))
+        return console.log(err.message)
       })
   }
 }
 
-export function fetchAddFound(new_found: FoundAnimal): ThunkAction {
+export function setAddFound(newFound: FoundAnimal): ThunkAction {
   return (dispatch) => {
-    return addFound(new_found)
+    return addFound(newFound)
       .then((found) => {
-        dispatch(requestFound(found))
+        dispatch(addingFound(found))
       })
       .catch((err) => {
-        dispatch(showError(err))
+        return console.log(err.message)
       })
   }
 }
 
-export function fetchDeleteFound(found_id: number): ThunkAction {
+export function setDeleteFound(foundId: number): ThunkAction {
   return (dispatch) => {
-    return deleteFound(found_id)
+    return deleteFound(foundId)
       .then((id) => {
         dispatch(delFound(id))
       })
       .catch((err) => {
-        dispatch(showError(err))
+        return console.log(err.message)
       })
   }
 }
