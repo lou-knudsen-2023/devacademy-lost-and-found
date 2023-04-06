@@ -1,5 +1,5 @@
 export interface FoundAnimal {
-  id: number
+  id?: number
   species: string
   photo: string
   user_id: number
