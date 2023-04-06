@@ -1,5 +1,7 @@
 import express from 'express'
 const router = express.Router()
+import { LostAnimal } from '../../common/LostAnimal'
+import { getOneLostAnimal } from '../db/lost'
 
 import * as db from '../db/lost'
 
@@ -14,9 +16,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const { name, species, photo, user_id, user_name, user_contact } = req.body
   const lost = { name, species, photo, user_id, user_name, user_contact }
-  console.log(lost)
   db.createLost(lost)
-  return res.json(lost)
+    .then((singlePetArr) => {
+      res.json(singlePetArr[0])
+      console.log(singlePetArr[0])
+    })
+    .catch((err: Error) => {
+      res.status(500).send(err.message)
+    })
 })
 
 router.get('/:id', (req, res) => {

@@ -1,5 +1,14 @@
 import connection from './connection'
 
+interface lostPet {
+  name: string
+  species: string
+  photo: string
+  user_id: string
+  user_name: string
+  user_contact: string
+}
+
 //gets all lost pets and returns them
 export function getAllLost(db = connection) {
   return db('lost').select()
@@ -21,7 +30,7 @@ export async function makeFound(id: number, db = connection) {
 }
 
 //creates a new lost pet and returns their info
-export function createLost(lostObj, db = connection) {
+export function createLost(lostObj: lostPet, db = connection) {
   return db('lost')
     .insert({
       name: lostObj.name,
