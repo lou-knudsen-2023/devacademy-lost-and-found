@@ -26,6 +26,7 @@ router.post('/', (req, res) => {
     })
 })
 
+//JSON GET HTTPS METHOD API Route
 router.get('/:id', (req, res) => {
   getOneLostAnimal(Number(req.params.id))
     .then((lostanimal) => res.json(lostanimal))

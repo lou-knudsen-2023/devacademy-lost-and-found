@@ -18,14 +18,16 @@ export function addNewLostAnimal(
 
 //unused potential APIClient CRUD Functions
 
-// export function updateLostAnimalsApi(lostAnimal: LostAnimal) {
-//   return request
-//     .post(`/api/v1/shows/${lostAnimal.id}`)
-//     .send(lostAnimal)
-//     .then((res) => {
-//       return res.body
-//     })
-// }
+export function updateLostAnimalsApi(lostAnimal: LostAnimal) {
+  return request
+    .post(`/api/v1/shows/${lostAnimal.id}`)
+    .send(lostAnimal)
+    .then((res) => {
+      return res.body
+    })
+}
+
+//delete lost animal function to be used later
 
 // export function deleteLostAnimalsApi(lostAnimalid: number): Promise<number> {
 //   return request.del(`/api/v1/lost/${lostAnimalid}`).then((res) => res.body)

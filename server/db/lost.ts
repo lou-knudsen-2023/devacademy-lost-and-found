@@ -1,4 +1,5 @@
 import connection from './connection'
+import { LostAnimal } from '../../common/LostAnimal'
 
 interface lostPet {
   name: string
@@ -53,4 +54,22 @@ export function createLost(lostObj: lostPet, db = connection) {
 
 export function getOneLostAnimal(id: number, db = connection) {
   return db('lost').first().where({ id })
+}
+
+export function updateLostAnimal(
+  id: number,
+  updatedLostAnimal: LostAnimal,
+  db = connection
+): Promise<LostAnimal[]> {
+  return db('lost')
+    .update({ ...updatedLostAnimal }, [
+      'id',
+      'name',
+      'species',
+      'photo',
+      'user_id',
+      'user_name',
+      'user_contact',
+    ])
+    .where('id', id)
 }
