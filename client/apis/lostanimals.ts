@@ -30,17 +30,17 @@ export function deleteLost(lostId: number): Promise<number> {
   return request.del(`/${lostId}`).then((res) => res.body)
 }
 
-export function updateLost(
-  id: number,
-  updatedLost: LostAnimal
-): Promise<LostAnimal> {
-  return request
-    .patch(`/${id}`)
-    .send(updatedLost)
-    .then((res) => {
-      return res.body
-    })
-}
+// export function updateLost(
+//   id: number,
+//   updatedLost: LostAnimal
+// ): Promise<LostAnimal> {
+//   return request
+//     .patch(`/${id}`)
+//     .send(updatedLost)
+//     .then((res) => {
+//       return res.body
+//     })
+// }
 
 //unused potential APIClient CRUD Functions
 
