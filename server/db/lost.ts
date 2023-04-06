@@ -1,15 +1,6 @@
 import connection from './connection'
 import { LostAnimal } from '../../common/LostAnimal'
 
-interface lostPet {
-  name: string
-  species: string
-  photo: string
-  user_id: string
-  user_name: string
-  user_contact: string
-}
-
 //gets all lost pets and returns them
 export function getAllLost(db = connection) {
   return db('lost').select()
@@ -17,21 +8,21 @@ export function getAllLost(db = connection) {
 
 //sends lost Pet with matching ID into found table
 export async function makeFound(id: number, db = connection) {
-    try{
-        const lostPet = await db('lost').select().where('id', id).first()
-        if (lostPet) {
-            await db('found').insert(lostPet)
-            await db('lost').where('id', id).del()
-            return true //indicates pet was successfully moved
-        }
-        return false //indicates pet was not moved
-    } catch(error) {
-        throw 500
+  try {
+    const lostPet = await db('lost').select().where('id', id).first()
+    if (lostPet) {
+      await db('found').insert(lostPet)
+      await db('lost').where('id', id).del()
+      return true //indicates pet was successfully moved
     }
-  } 
+    return false //indicates pet was not moved
+  } catch (error) {
+    throw 500
+  }
+}
 
 //creates a new lost pet and returns their info
-export function createLost(lostObj: lostPet, db = connection) {
+export function createLost(lostObj: LostAnimal, db = connection) {
   return db('lost')
     .insert({
       name: lostObj.name,
@@ -62,7 +53,8 @@ export function updateLostAnimal(
   db = connection
 ): Promise<LostAnimal[]> {
   return db('lost')
-    .update({ ...updatedLostAnimal }, [
+    .update({ ...updatedLostAnimal })
+    .returning([
       'id',
       'name',
       'species',
