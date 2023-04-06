@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { FoundAnimal } from '../../common/FoundAnimal'
 
 export default function AddFoundForm() {
-  const [foundAnimal, setFoundAnimal] = useState({} as FoundAnimal)
+  const [foundAnimal, setFoundAnimal] = useState(null as FoundAnimal | null)
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,7 +31,7 @@ export default function AddFoundForm() {
           name="photo"
           id="photo"
           type="text"
-          value={foundAnimal.photo}
+          value={foundAnimal?.photo}
           onChange={handleChange}
           placeholder="ex:'https://images...."
           required
@@ -41,7 +41,7 @@ export default function AddFoundForm() {
           name="species"
           id="species"
           type="text"
-          value={foundAnimal.species}
+          value={foundAnimal?.species}
           onChange={handleChange}
           placeholder="ex:'https://images....'"
           required
@@ -50,7 +50,7 @@ export default function AddFoundForm() {
         <input
           name="user_name"
           id="user_name"
-          value={foundAnimal.user_name}
+          value={foundAnimal?.user_name}
           onChange={handleChange}
           placeholder="Your Name"
           required
@@ -59,7 +59,7 @@ export default function AddFoundForm() {
         <input
           name="user_contact"
           id="user_contact"
-          value={foundAnimal.user_contact}
+          value={foundAnimal?.user_contact}
           onChange={handleChange}
           placeholder="Your Phone Number"
           required

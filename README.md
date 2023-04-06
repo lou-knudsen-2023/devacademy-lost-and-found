@@ -63,8 +63,8 @@ As a registered user:
 
   | name | purpose |
   | --- | --- |
-  | allFound | Store the array of pets that have been found (from db) |
-  | allLost | Store the array of pets that have been lost (from db) |
+  | foundReducer | Store the array of pets that have been found (from db) |
+  | lostReducer | Store the array of pets that have been lost (from db) |
 
 ## Actions (Client Side)
 
@@ -82,10 +82,10 @@ As a registered user:
 
 | Method | Endpoint | Protected | Usage | Response |
 | --- | --- | --- | --- | --- |
-| Get | /api/lost | No | Get the list of lost pets | Array of Objects (object = A Lost Pet) |
-| Get | /api/found | No | Get the list of found pets | Array of Objects (object = A Found Pet) |
-| Post | /api/lost | Yes | Add a Lost pet to the db | The Pet that was added (as an object) |
-| Post | /api/found | Yes | Add a Found pet to the db | The Pet that was added (as an object) |
+| Get | /api/v1/lost | No | Get the list of lost pets | Array of Objects (object = A Lost Pet) |
+| Get | /api/v1/found | No | Get the list of found pets | Array of Objects (object = A Found Pet) |
+| Post | /api/v1/lost | Yes | Add a Lost pet to the db | The Pet that was added (as an object) |
+| Post | /api/v1/found | Yes | Add a Found pet to the db | The Pet that was added (as an object) |
 
 ## DB (Server Side) -
   There should be two tables for MVP. You may want/need to add additional columns or tables.
