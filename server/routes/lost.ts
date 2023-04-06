@@ -1,9 +1,14 @@
 import express from 'express'
-const router = express.Router()
+
 import { LostAnimal } from '../../common/LostAnimal'
 import { getOneLostAnimal } from '../db/lost'
 
+import { JwtRequest } from '../auth0'
+import checkJwt from '../auth0'
+
 import * as db from '../db/lost'
+
+const router = express.Router()
 
 router.get('/', (req, res) => {
   db.getAllLost()
@@ -13,9 +18,15 @@ router.get('/', (req, res) => {
     .catch((err: Error) => console.log(err.message))
 })
 
-router.post('/', (req, res) => {
+router.post('/', checkJwt, (req: JwtRequest, res) => {
   const { name, species, photo, user_id, user_name, user_contact } = req.body
   const lost = { name, species, photo, user_id, user_name, user_contact }
+  const auth0Id = req.auth?.sub
+  if (!auth0Id) {
+    console.error('No auth0Id')
+    return res.status(401).send('Unauthorized')
+  }
+
   db.createLost(lost)
   .then((singlePetArr) => {
     res.json(singlePetArr[0])
