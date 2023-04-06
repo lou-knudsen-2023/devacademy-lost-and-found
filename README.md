@@ -63,17 +63,20 @@ As a registered user:
 
   | name | purpose |
   | --- | --- |
-  | foundPets | Store the array of pets that have been found (from db) |
-  | lostPets | Store the array of pets that have been lost (from db) |
+  | allFound | Store the array of pets that have been found (from db) |
+  | allLost | Store the array of pets that have been lost (from db) |
 
 ## Actions (Client Side)
 
   | type | data | purpose |
   | --- | --- | --- |
-  | RECEIVE_FOUND_PETS | pets | For retrieving the found pets from the server response |
-  | ADD_FOUND_PET | pet | For adding a found pet to the client store after is had been added to the db |
-  | RECEIVE_LOST_PETS | pets | For retrieving the lost pets from the server response |
-  | ADD_LOST_PET | pet | For adding lost a pet to the client store after is had been added to the db |
+  | SET_FOUND | pets | For retrieving the found pets from the server response |
+  | ADD_FOUND | pet | For adding a found pet to the client store after is had been added to the db |
+  | DELETE_FOUND | pet | For deleting a found pet from the client store and the db |
+  | SET_LOST | pets | For retrieving the lost pets from the server response |
+  | ADD_LOST | pet | For adding lost a pet to the client store after is had been added to the db |
+  | DELETE_LOST | pet | For deleting a lost pet from the client store and the db |
+
 
 ## API (Client - Server)
 

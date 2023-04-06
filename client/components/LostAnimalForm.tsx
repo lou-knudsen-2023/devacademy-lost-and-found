@@ -1,11 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { useAppDispatch } from '../hooks'
-// addd addFetchLost Function
 import { LostAnimal } from '../../common/LostAnimal'
 
 export default function AddLostForm() {
-  const dispatch = useAppDispatch()
-
   const [lostAnimal, setLostAnimal] = useState({} as LostAnimal)
 
   const handleChange = (
@@ -16,7 +12,6 @@ export default function AddLostForm() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    // set the addFetchLost Function from the action
 
     setLostAnimal({
       name: '',

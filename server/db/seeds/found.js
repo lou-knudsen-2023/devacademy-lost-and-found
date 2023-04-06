@@ -3,7 +3,7 @@ exports.seed = (knex) => {
     {
       id: 1,
       species: 'dog',
-      photo: '/images/dogs/dog3.jpeg',
+      photo: '/images/dogs/dog3.jpg',
       user_id: '1',
       user_name: 'Emily',
       user_contact: 'emilylovesdogs@gmail.com',
@@ -11,7 +11,7 @@ exports.seed = (knex) => {
     {
       id: 2,
       species: 'dog',
-      photo: '/images/dogs/dog4.jpeg',
+      photo: '/images/dogs/dog4.jpg',
       user_id: '2',
       user_name: 'Belle',
       user_contact: 'belleiscool@hotmail.com',
@@ -27,7 +27,7 @@ exports.seed = (knex) => {
     {
       id: 4,
       species: 'dog',
-      photo: '/images/dogs/dog5.jpeg',
+      photo: '/images/dogs/dog5.jpg',
       user_id: '4',
       user_name: 'Jasper',
       user_contact: 'jaspertakesphotos@gmail.com',
@@ -51,18 +51,10 @@ exports.seed = (knex) => {
     {
       id: 7,
       species: 'dog',
-      photo: '/images/dogs/dog6.jpeg',
+      photo: '/images/dogs/dog6.jpg',
       user_id: '7',
       user_name: 'Andy',
       user_contact: 'buzzandwoody@hotmail.com',
-    },
-    {
-      id: 8,
-      species: 'dog',
-      photo: '/images/dogs/dog7.jpeg',
-      user_id: '8',
-      user_name: 'Ellie',
-      user_contact: 'ellieloveslife@xtra.co.nz',
     },
   ])
 }
