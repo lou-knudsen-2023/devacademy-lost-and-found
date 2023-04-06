@@ -1,20 +1,20 @@
 import express from 'express'
 const router = express.Router()
 
-import * as db from '../db/lost'
+import * as db from '../db/found'
 
 router.get('/', (req, res) => {
-  db.getAllLost()
-    .then((lostArr) => {
-      res.json(lostArr)
+  db.getAllFound()
+    .then((foundArr) => {
+      res.json(foundArr)
     })
     .catch((err: Error) => console.log(err.message))
 })
 
 router.post('/', (req, res) => {
   const { name, species, photo, user_id, user_name, user_contact } = req.body
-  const lost = { name, species, photo, user_id, user_name, user_contact }
-  db.createLost(lost)
+  const found = { name, species, photo, user_id, user_name, user_contact }
+  db.createFound(found)
     .then((singlePetArr) => {
       res.json(singlePetArr[0])
       console.log(singlePetArr[0])
