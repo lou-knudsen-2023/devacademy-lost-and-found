@@ -1,10 +1,14 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
 //need action to set All the Lost
+//we need to import from actions the fetchsetlostanimal below
+import { }
 import SingleLostAnimal from './LostSingleAnimal'
+import AddLostForm from './LostAnimalForm'
 
 export default function AllLostAnimals() {
   const dispatch = useAppDispatch()
+  const lostanimals = useAppSelector((state) => {state.lostReducer})
   // variable using Appselector to the lost animal reducer
 
   useEffect(() => {
