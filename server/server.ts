@@ -1,7 +1,5 @@
 import express from 'express'
 import { join } from 'node:path'
-// import lost from './routes/lost'
-
 import lost from './routes/lost'
 
 const server = express()
@@ -13,8 +11,6 @@ server.get('*', (req, res) => {
   res.sendFile(join(__dirname, 'public/index.html'))
 })
 
-// server.use('/api/v1/lost', lost)
 server.use('/api/v1/lost', lost)
-
 
 export default server

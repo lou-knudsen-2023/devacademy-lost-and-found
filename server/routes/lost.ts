@@ -1,5 +1,7 @@
 import express from 'express'
 const router = express.Router()
+import { LostAnimal } from '../../common/LostAnimal'
+import { getOneLostAnimal } from '../db/lost'
 
 import * as db from '../db/lost'
 
@@ -22,6 +24,13 @@ router.post('/', (req, res) => {
     .catch((err: Error) => {
       res.status(500).send(err.message)
     })
+})
+
+//JSON GET HTTPS METHOD API Route
+router.get('/:id', (req, res) => {
+  getOneLostAnimal(Number(req.params.id))
+    .then((lostanimal) => res.json(lostanimal))
+    .catch((err) => res.status(500).json({ status: 500, error: err.message }))
 })
 
 export default router
