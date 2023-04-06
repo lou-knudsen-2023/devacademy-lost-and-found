@@ -26,8 +26,6 @@ export default function AllLostAnimals() {
     </div>
     </section>
   </>
+
   )
 }
-
-
-
