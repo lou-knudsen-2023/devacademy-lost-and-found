@@ -6,7 +6,7 @@ import SingleFoundAnimal from './FoundSingleAnimal'
 export default function AllFoundAnimals() {
   const dispatch = useAppDispatch()
   const foundanimals = useAppSelector((state) => state.foundReducer)
-  const [selected, setSelected] = useState('')
+  const [selected, setSelected] = useState('all')
 
   const options = [
     { label: 'All animals', value: 'all' },
@@ -25,7 +25,9 @@ export default function AllFoundAnimals() {
     <>
       <section>
         <div className="dropDown">
+          <label htmlFor="form">Select a sort option: </label>
           <select
+            id="form"
             value={selected}
             onChange={(e) => setSelected(e.target.value)}
           >

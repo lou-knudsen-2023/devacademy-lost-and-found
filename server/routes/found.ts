@@ -12,7 +12,9 @@ router.get('/', (req, res) => {
     .then((foundArr) => {
       res.json(foundArr)
     })
-    .catch((err: Error) => console.log(err.message))
+    .catch((err: Error) => {
+      res.status(500).send(err.message)
+    })
 })
 
 router.post('/', checkJwt, (req: JwtRequest, res) => {
@@ -20,7 +22,6 @@ router.post('/', checkJwt, (req: JwtRequest, res) => {
   const found = { name, species, photo, user_id, user_name, user_contact }
   const auth0Id = req.auth?.sub
   if (!auth0Id) {
-    console.error('No auth0Id')
     return res.status(401).send('Unauthorized')
   }
 
