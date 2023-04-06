@@ -6,7 +6,6 @@ export type LostAction =
   | { type: 'ADD_LOST'; payload: LostAnimal }
   | { type: 'SET_LOST'; payload: LostAnimal[] }
   | { type: 'DELETE_LOST'; payload: number }
-  | { type: 'UPDATE_LOST'; payload: LostAnimal }
 
 export function receiveLost(lost: LostAnimal[]): LostAction {
   return {
@@ -26,13 +25,6 @@ export function delLost(lostId: number): LostAction {
   return {
     type: 'DELETE_LOST',
     payload: lostId,
-  }
-}
-
-export function updateLostItem(updatedLost: LostAnimal): LostAction {
-  return {
-    type: 'UPDATE_LOST',
-    payload: updatedLost,
   }
 }
 
