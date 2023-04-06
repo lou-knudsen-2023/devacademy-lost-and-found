@@ -28,6 +28,7 @@ export default function SingleLostAnimal(props: Props) {
           <p className="title is-4">Owner: <span className="title is-5 has-text-weight-normal">{user_name}</span></p>
         </div>
         <div id="contact-details-content" className="card-content">
+
           <p className="title is-4">If you find our loved pet contact us: </p>
           <p>{user_contact}</p>
         </div>
