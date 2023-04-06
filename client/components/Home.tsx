@@ -9,10 +9,10 @@ function Home() {
         <p>We help reunite lost pets with their owners.</p>
       </div>
       <div className="list-lost">
-        <AllLostAnimals />
+        {/* <AllLostAnimals /> */}
       </div>
       <div className="list-found">
-        <AllFoundAnimals />
+        {/* <AllFoundAnimals /> */}
       </div>
     </div>
   )
