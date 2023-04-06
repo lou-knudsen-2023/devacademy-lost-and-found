@@ -17,6 +17,9 @@ function Header() {
             <p className="subtitle">{user?.nickname}</p>
           </IfAuthenticated>
         </div>
+
+
+
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <div className="menu">
@@ -47,6 +50,10 @@ function Header() {
                 </li>
               </ul>
             </div>
+
+
+
+            
             <div className="navbar-end">
               <IfAuthenticated>
                 <button className="button is-primary" onClick={() => logout()}>

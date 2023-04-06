@@ -17,14 +17,33 @@
 @import "bulma/sass/components/navbar.sass";
 @import "bulma/sass/form/_all.sass";
 
+body{
+  background-color: $light;
+}
+
 .hero-body {
   display: flex;
   justify-content: space-between;
 }
 
-
-.container {
-  background-color: $neutral;
+.hero.is-primary .title{
+  white-space: nowrap;
 }
+.hero .navbar{
+  width: 100%;
+  .navbar-brand{
+    width: 100%;
+  }
+  .menu{
+    width: 100%;
+    ul{
+      display: flex;
+    justify-content: space-around;
+    padding: 9px;
+    }
+  }
+
+}
+
 
 
