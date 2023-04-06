@@ -24,7 +24,7 @@ export default function SingleFoundAnimal(props: Props) {
           <h2>If you find our loved pet contact us :</h2>
           <p>{user_contact}</p>
         </div>
-        <button onClick={() => dispatch(fetchDeleteFound(id))}>Delete</button>
+        {/* <button onClick={() => dispatch(fetchDeleteFound(id))}>Delete</button> */}
       </div>
     </div>
   )
