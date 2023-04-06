@@ -15,6 +15,7 @@ export default function AllLostAnimals() {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="card-header">
         <p className='card-header-title'>Help me, Im lost</p>
       </div>
@@ -26,8 +27,16 @@ export default function AllLostAnimals() {
     </div>
     </section>
   </>
+=======
+      <h1>Help me, Im lost</h1>
+      <section>
+        <div className="card-list-container">
+          {lostanimals.map((data) => (
+            <SingleLostAnimal lostProp={data} key={data.id} />
+          ))}
+        </div>
+      </section>
+    </>
+>>>>>>> 68182504eb3d0b1d390d6ca00446de3d59bb1219
   )
 }
-
-
-
