@@ -43,6 +43,5 @@ export default function SingleFoundAnimal(props: Props) {
           </IfNotAuthenticated>
         </div>
       </div>
-    </div>
   )
 }
