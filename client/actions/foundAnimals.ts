@@ -28,15 +28,13 @@ export function delFound(foundId: number): FoundAction {
   }
 }
 
-//Fetching to dataBase
-
 export function setAllFound(): ThunkAction {
   return (dispatch) => {
     return getAllFound()
       .then((found) => {
         dispatch(receiveFound(found))
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         return console.log(err.message)
       })
   }
