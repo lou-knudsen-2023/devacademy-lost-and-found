@@ -15,11 +15,11 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route
           path="foundDogs"
-          element={<AllFoundAnimals defaultTo="dog" />}
+          element={<AllFoundAnimals defaultTo="Dog" />}
         ></Route>
         <Route
           path="foundCats"
-          element={<AllFoundAnimals defaultTo="cat" />}
+          element={<AllFoundAnimals defaultTo="Cat" />}
         ></Route>
         <Route
           path="found"
@@ -27,11 +27,11 @@ function App() {
         ></Route>
         <Route
           path="lostDogs"
-          element={<AllLostAnimals defaultTo="dog" />}
+          element={<AllLostAnimals defaultTo="Dog" />}
         ></Route>
         <Route
           path="lostCats"
-          element={<AllLostAnimals defaultTo="cat" />}
+          element={<AllLostAnimals defaultTo="Cat" />}
         ></Route>
         <Route path="lost" element={<AllLostAnimals defaultTo="all" />}></Route>
 

@@ -16,8 +16,8 @@ export default function AllLostAnimals(petType: Props) {
 
   const options = [
     { label: 'All animals', value: 'all' },
-    { label: 'Cat', value: 'cat' },
-    { label: 'Dog', value: 'dog' },
+    { label: 'Cat', value: 'Cat' },
+    { label: 'Dog', value: 'Dog' },
   ]
 
   const filteredAnimals = lostanimals.filter(
