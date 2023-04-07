@@ -26,7 +26,7 @@ exports.seed = (knex) => {
     },
     {
       id: 4,
-      species: 'dDg',
+      species: 'Dog',
       photo: '/images/dogs/dog5.jpg',
       user_id: '4',
       user_name: 'Jasper',
