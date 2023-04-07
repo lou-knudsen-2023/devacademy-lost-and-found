@@ -45,7 +45,7 @@ export function setAllLost(): ThunkAction {
         dispatch(receiveLost(lost))
       })
       .catch((err) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }
@@ -57,7 +57,7 @@ export function setAddLost(newLost: LostAnimal): ThunkAction {
         dispatch(addingLost(lost))
       })
       .catch((err) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }
@@ -69,7 +69,7 @@ export function setDeleteLost(lostId: number): ThunkAction {
         dispatch(delLost(id))
       })
       .catch((err) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }

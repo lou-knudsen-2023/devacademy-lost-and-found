@@ -6,6 +6,7 @@ export type FoundAction =
   | { type: 'ADD_FOUND'; payload: FoundAnimal }
   | { type: 'SET_FOUND'; payload: FoundAnimal[] }
   | { type: 'DELETE_FOUND'; payload: number }
+  | { type: 'SET_ERROR_STATUS'; payload: string }
 
 export function receiveFound(found: FoundAnimal[]): FoundAction {
   return {
@@ -28,6 +29,13 @@ export function delFound(foundId: number): FoundAction {
   }
 }
 
+export function setErrorStatus(errorMessage: string): FoundAction {
+  return {
+    type: 'SET_ERROR_STATUS',
+    payload: errorMessage,
+  }
+}
+
 export function setAllFound(): ThunkAction {
   return (dispatch) => {
     return getAllFound()
@@ -35,7 +43,7 @@ export function setAllFound(): ThunkAction {
         dispatch(receiveFound(found))
       })
       .catch((err: Error) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }
@@ -47,7 +55,7 @@ export function setAddFound(newFound: FoundAnimal): ThunkAction {
         dispatch(addingFound(found))
       })
       .catch((err) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }
@@ -59,7 +67,7 @@ export function setDeleteFound(foundId: number): ThunkAction {
         dispatch(delFound(id))
       })
       .catch((err) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }
