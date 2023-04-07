@@ -88,6 +88,8 @@ body{
 
 
 .card-list-container {
+  flex-wrap: wrap;
+
   .card {
     box-sizing:border-box;
     width: 100%;
