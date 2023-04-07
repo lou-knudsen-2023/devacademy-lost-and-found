@@ -1,5 +1,5 @@
 import { LostAction } from '../actions/lostAnimals'
-import { LostAnimal } from '../../common/LostAnimal'
+import { LostAnimal } from '../../common/lostAnimal'
 
 const initialState = [] as LostAnimal[]
 
@@ -20,5 +20,3 @@ export default function lostReducer(
       return state
   }
 }
-
-// finishing

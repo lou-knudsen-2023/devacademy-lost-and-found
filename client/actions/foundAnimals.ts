@@ -1,5 +1,5 @@
 import { ThunkAction } from '../store'
-import { FoundAnimal } from '../../common/FoundAnimal'
+import { FoundAnimal } from '../../common/foundAnimal'
 import { addFound, getAllFound, deleteFound } from '../apis/foundanimals'
 
 export type FoundAction =

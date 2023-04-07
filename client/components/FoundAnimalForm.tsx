@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { FoundAnimal } from '../../common/FoundAnimal'
+import { FoundAnimal } from '../../common/foundAnimal'
 
 export default function AddFoundForm() {
   const [foundAnimal, setFoundAnimal] = useState(null as FoundAnimal | null)
