@@ -29,7 +29,7 @@ export default function SingleFoundAnimal(props: Props) {
         </p>
       </div>
       <div id="contact-details-content" className="card-content">
-        <p className="title is-4">If you want to breed with my found pet, let me know: </p>
+        <p className="title is-4">If this is your pet please contact: </p>
           <IfAuthenticated>
             <p>{user_contact}</p>
           </IfAuthenticated>
