@@ -11,15 +11,25 @@ export default function SingleFoundAnimal(props: Props) {
   const { loginWithRedirect } = useAuth0()
 
   return (
-    <div className="lost-container">
-      <img className="img_size" src={photo} alt={species} />
-      <div className="text-body">
-        <div className="card-text-bottom">
-          <h2>Species:</h2>
-          <p>{species}</p>
-          <h2>Owner:</h2>
-          <p>{user_name}</p>
-          <h2>If you find our loved pet contact us :</h2>
+    <div className="card">
+      <div className="card-image">
+        <figure className="image is-4by3">
+          <img src={photo} alt={species} />
+        </figure>
+      </div>
+
+      <div className="card-content">
+      <p className="title is-3">{species}</p>
+      </div>
+
+      <div className="card-content" id="species-content">
+        <p className="title is-4">
+        Owner: 
+          <span className="title is-5 has-text-weight-normal">{user_name}</span>
+        </p>
+      </div>
+      <div id="contact-details-content" className="card-content">
+        <p className="title is-4">If you find our loved pet contact: </p>
           <IfAuthenticated>
             <p>{user_contact}</p>
           </IfAuthenticated>
@@ -33,6 +43,5 @@ export default function SingleFoundAnimal(props: Props) {
           </IfNotAuthenticated>
         </div>
       </div>
-    </div>
   )
 }
