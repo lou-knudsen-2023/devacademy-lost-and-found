@@ -1,16 +1,15 @@
 import connection from './connection'
-import { FoundAnimal } from '../../common/foundAnimal'
+import { FoundAnimalData } from '../../common/foundAnimal'
 
 export function getAllFound(db = connection) {
   return db('found').select()
 }
 
-export function createFound(foundObj: FoundAnimal, db = connection) {
+export function createFound(foundObj: FoundAnimalData, db = connection) {
   return db('found')
     .insert({
       species: foundObj.species,
       photo: foundObj.photo,
-      user_id: foundObj.user_id,
       user_name: foundObj.user_name,
       user_contact: foundObj.user_contact,
     })
