@@ -2,7 +2,7 @@ exports.seed = (knex) => {
   return knex('found').insert([
     {
       id: 1,
-      species: 'dog',
+      species: 'Dog',
       photo: '/images/dogs/dog3.jpg',
       user_id: '1',
       user_name: 'Emily',
@@ -10,7 +10,7 @@ exports.seed = (knex) => {
     },
     {
       id: 2,
-      species: 'dog',
+      species: 'Dog',
       photo: '/images/dogs/dog4.jpg',
       user_id: '2',
       user_name: 'Belle',
@@ -18,7 +18,7 @@ exports.seed = (knex) => {
     },
     {
       id: 3,
-      species: 'cat',
+      species: 'Cat',
       photo: '/images/cats/cat3.jpg',
       user_id: '3',
       user_name: 'Ben',
@@ -26,7 +26,7 @@ exports.seed = (knex) => {
     },
     {
       id: 4,
-      species: 'dog',
+      species: 'dDg',
       photo: '/images/dogs/dog5.jpg',
       user_id: '4',
       user_name: 'Jasper',
@@ -34,7 +34,7 @@ exports.seed = (knex) => {
     },
     {
       id: 5,
-      species: 'cat',
+      species: 'Cat',
       photo: '/images/cats/cat4.jpg',
       user_id: '5',
       user_name: 'Sarah',
@@ -42,7 +42,7 @@ exports.seed = (knex) => {
     },
     {
       id: 6,
-      species: 'cat',
+      species: 'Cat',
       photo: '/images/cats/cat5.jpg',
       user_id: '6',
       user_name: 'Lisa',
@@ -50,7 +50,7 @@ exports.seed = (knex) => {
     },
     {
       id: 7,
-      species: 'dog',
+      species: 'Dog',
       photo: '/images/dogs/dog6.jpg',
       user_id: '7',
       user_name: 'Andy',
