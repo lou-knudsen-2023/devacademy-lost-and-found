@@ -1,8 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { FoundAnimal } from '../../common/FoundAnimal'
+import { FoundAnimal, FoundAnimalData } from '../../common/FoundAnimal'
+import { useAppDispatch } from '../hooks'
+import { setAddFound } from '../actions/foundAnimals'
 
 export default function AddFoundForm() {
-  const [foundAnimal, setFoundAnimal] = useState(null as FoundAnimal | null)
+  const [foundAnimal, setFoundAnimal] = useState({
+    species: '',
+    photo: '',
+    user_name: '',
+    user_contact: '',
+  })
+  const dispatch = useAppDispatch()
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -12,14 +20,7 @@ export default function AddFoundForm() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    // set the fetch elements from the action
-
-    setFoundAnimal({
-      species: '',
-      photo: '',
-      user_name: '',
-      user_contact: '',
-    } as FoundAnimal)
+    dispatch(setAddFound(foundAnimal))
   }
 
   return (
