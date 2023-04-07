@@ -43,6 +43,11 @@ export default function AllFoundAnimals(petType: Props) {
             ))}
           </select>
         </div>
+
+         <div className="card-header">
+        <p className="card-header-title">Good news, Im found</p>
+      </div>
+
         <div className="card-list-container">
           {filteredAnimals.map((data) => (
             <SingleFoundAnimal foundProp={data} key={data.id} />

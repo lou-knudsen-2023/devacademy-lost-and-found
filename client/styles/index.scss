@@ -16,14 +16,14 @@
 @import "bulma/sass/elements/title.sass";
 @import "bulma/sass/components/navbar.sass";
 @import "bulma/sass/form/_all.sass";
+@import "bulma/sass/components/card.sass";
 
 .hero-body {
   display: flex;
   justify-content: space-between;
 }
 
-
-.container {
+body {
   background-color: $neutral;
 }
 
