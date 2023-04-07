@@ -3,10 +3,14 @@ import { useAppDispatch, useAppSelector } from '../hooks'
 import { setAllFound } from '../actions/foundAnimals'
 import SingleFoundAnimal from './FoundSingleAnimal'
 
-export default function AllFoundAnimals() {
+interface Props {
+  defaultTo: string
+}
+
+export default function AllFoundAnimals(petType: Props) {
   const dispatch = useAppDispatch()
   const foundanimals = useAppSelector((state) => state.foundReducer)
-  const [selected, setSelected] = useState('all')
+  const [selected, setSelected] = useState(petType.defaultTo)
 
   const options = [
     { label: 'All animals', value: 'all' },
@@ -39,6 +43,11 @@ export default function AllFoundAnimals() {
             ))}
           </select>
         </div>
+
+        <div className="card-header">
+          <p className="card-header-title">Good news, Im found</p>
+        </div>
+
         <div className="card-list-container">
           {filteredAnimals.map((data) => (
             <SingleFoundAnimal foundProp={data} key={data.id} />
