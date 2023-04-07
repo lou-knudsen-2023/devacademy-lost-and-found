@@ -22,6 +22,10 @@ function App() {
           element={<AllFoundAnimals defaultTo="cat" />}
         ></Route>
         <Route
+          path="found"
+          element={<AllFoundAnimals defaultTo="all" />}
+        ></Route>
+        <Route
           path="lostDogs"
           element={<AllLostAnimals defaultTo="dog" />}
         ></Route>
@@ -29,6 +33,7 @@ function App() {
           path="lostCats"
           element={<AllLostAnimals defaultTo="cat" />}
         ></Route>
+        <Route path="lost" element={<AllLostAnimals defaultTo="all" />}></Route>
 
         <Route path="foundForm" element={<AddFoundForm />}></Route>
         <Route path="lostForm" element={<AddLostForm />}></Route>
