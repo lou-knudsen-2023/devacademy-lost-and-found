@@ -42,9 +42,9 @@ export function setAllFound(): ThunkAction {
   }
 }
 
-export function setAddFound(newFound: FoundAnimal): ThunkAction {
+export function setAddFound(newFound: FoundAnimal, token: string): ThunkAction {
   return (dispatch) => {
-    return addFound(newFound)
+    return addFound(newFound, token)
       .then((found) => {
         dispatch(addingFound(found))
       })

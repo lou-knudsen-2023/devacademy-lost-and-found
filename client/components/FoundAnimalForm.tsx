@@ -2,6 +2,8 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { FoundAnimal, FoundAnimalData } from '../../common/FoundAnimal'
 import { useAppDispatch } from '../hooks'
 import { setAddFound } from '../actions/foundAnimals'
+import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function AddFoundForm() {
   const [foundAnimal, setFoundAnimal] = useState({
@@ -11,6 +13,9 @@ export default function AddFoundForm() {
     user_contact: '',
   })
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const { getAccessTokenSilently } = useAuth0()
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -18,9 +23,21 @@ export default function AddFoundForm() {
     setFoundAnimal({ ...foundAnimal, [e.target.id]: e.target.value })
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  // const handleSubmit = (e: FormEvent) => {
+  //   e.preventDefault()
+  //   dispatch(setAddFound(foundAnimal))
+  //   navigate('/found')
+  // }
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    dispatch(setAddFound(foundAnimal))
+    try {
+      const token = await getAccessTokenSilently()
+      dispatch(setAddFound(foundAnimal, token))
+      navigate('/found')
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (

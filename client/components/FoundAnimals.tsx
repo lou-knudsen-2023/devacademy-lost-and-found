@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { setAllFound } from '../actions/foundAnimals'
 import SingleFoundAnimal from './FoundSingleAnimal'
-
 interface Props {
   defaultTo: string
 }
@@ -25,6 +24,7 @@ export default function AllFoundAnimals(petType: Props) {
   useEffect(() => {
     dispatch(setAllFound())
   }, [dispatch])
+
   return (
     <>
       <section>
