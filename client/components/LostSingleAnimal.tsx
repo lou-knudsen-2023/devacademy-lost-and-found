@@ -17,7 +17,7 @@ export default function SingleLostAnimal(props: Props) {
 
       <div className="card-content">
         {/* <div className="card-header"> */}
-        <p className="title is-2">{name}</p>
+        <p className="title is-3">{name}</p>
       </div>
 
       <div className="card-content" id="species-content">
