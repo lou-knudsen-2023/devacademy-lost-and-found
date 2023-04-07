@@ -1,7 +1,5 @@
 import express from 'express'
-
-import { JwtRequest } from '../auth0'
-import checkJwt from '../auth0'
+import checkJwt, { JwtRequest } from '../auth0'
 
 import * as db from '../db/found'
 

@@ -1,8 +1,21 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { FoundAnimal } from '../../common/foundAnimal'
+import { useAppDispatch } from '../hooks'
+import { setAddFound } from '../actions/foundAnimals'
+import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import { FoundAnimalData } from '../../common/foundAnimal'
 
 export default function AddFoundForm() {
-  const [foundAnimal, setFoundAnimal] = useState(null as FoundAnimal | null)
+  const [foundAnimal, setFoundAnimal] = useState({
+    species: '',
+    photo: '',
+    user_name: '',
+    user_contact: '',
+  } as FoundAnimalData)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const { getAccessTokenSilently } = useAuth0()
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -10,16 +23,15 @@ export default function AddFoundForm() {
     setFoundAnimal({ ...foundAnimal, [e.target.id]: e.target.value })
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    // set the fetch elements from the action
-
-    setFoundAnimal({
-      species: '',
-      photo: '',
-      user_name: '',
-      user_contact: '',
-    } as FoundAnimal)
+    try {
+      const token = await getAccessTokenSilently()
+      dispatch(setAddFound(foundAnimal, token))
+      navigate('/found')
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (

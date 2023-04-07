@@ -1,6 +1,6 @@
 import { ThunkAction } from '../store'
-import { LostAnimal } from '../../common/lostAnimal'
-import { addLost, getAllLost, deleteLost } from '../apis/lostanimals'
+import { LostAnimal, LostAnimalData } from '../../common/lostAnimal'
+import { addLost, getAllLost } from '../apis/lostanimals'
 
 export type LostAction =
   | { type: 'ADD_LOST'; payload: LostAnimal }
@@ -42,23 +42,14 @@ export function setAllLost(): ThunkAction {
   }
 }
 
-export function setAddLost(newLost: LostAnimal): ThunkAction {
+export function setAddLost(
+  newLost: LostAnimalData,
+  token: string
+): ThunkAction {
   return (dispatch) => {
-    return addLost(newLost)
+    return addLost(newLost, token)
       .then((lost) => {
         dispatch(addingLost(lost))
-      })
-      .catch((err) => {
-        return console.log(err.message)
-      })
-  }
-}
-
-export function setDeleteLost(lostId: number): ThunkAction {
-  return (dispatch) => {
-    return deleteLost(lostId)
-      .then((id) => {
-        dispatch(delLost(id))
       })
       .catch((err) => {
         return console.log(err.message)
