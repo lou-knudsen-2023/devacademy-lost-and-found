@@ -4,11 +4,15 @@ import { setAllLost } from '../actions/lostAnimals'
 
 import SingleLostAnimal from './LostSingleAnimal'
 
-export default function AllLostAnimals() {
+interface Props {
+  defaultTo: string
+}
+
+export default function AllLostAnimals(petType: Props) {
   const dispatch = useAppDispatch()
   const lostanimals = useAppSelector((state) => state.lostReducer)
- 
-  const [selected, setSelected] = useState('all')
+
+  const [selected, setSelected] = useState(petType.defaultTo)
 
   const options = [
     { label: 'All animals', value: 'all' },
@@ -19,7 +23,6 @@ export default function AllLostAnimals() {
   const filteredAnimals = lostanimals.filter(
     (animal) => animal.species === selected
   )
-
 
   useEffect(() => {
     dispatch(setAllLost())
@@ -43,23 +46,24 @@ export default function AllLostAnimals() {
             ))}
           </select>
         </div>
-        
-      <div className="card-header">
-        <p className="card-header-title">Help me, Im lost</p>
-      </div>
+
+        <div className="card-header">
+          <p className="card-header-title">Help me, Im lost</p>
+        </div>
 
         <div className="card-list-container">
-            {filteredAnimals.map((data) => (
-              <SingleLostAnimal lostProp={data} key={data.id} />
-            ))}
+          {filteredAnimals.map((data) => (
+            <SingleLostAnimal lostProp={data} key={data.id} />
+          ))}
         </div>
-        <div>{selected === 'all' && (
-               <div className="card-list-container">
-               {lostanimals.map((data) => (
-                 <SingleLostAnimal lostProp={data} key={data.id} />
-               ))}
-              </div>
-            )} 
+        <div>
+          {selected === 'all' && (
+            <div className="card-list-container">
+              {lostanimals.map((data) => (
+                <SingleLostAnimal lostProp={data} key={data.id} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

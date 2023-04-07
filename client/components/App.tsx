@@ -13,8 +13,23 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="found" element={<AllFoundAnimals />}></Route>
-        <Route path="lost" element={<AllLostAnimals />}></Route>
+        <Route
+          path="foundDogs"
+          element={<AllFoundAnimals defaultTo="dog" />}
+        ></Route>
+        <Route
+          path="foundCats"
+          element={<AllFoundAnimals defaultTo="cat" />}
+        ></Route>
+        <Route
+          path="lostDogs"
+          element={<AllLostAnimals defaultTo="dog" />}
+        ></Route>
+        <Route
+          path="lostCats"
+          element={<AllLostAnimals defaultTo="cat" />}
+        ></Route>
+
         <Route path="foundForm" element={<AddFoundForm />}></Route>
         <Route path="lostForm" element={<AddLostForm />}></Route>
       </Routes>
