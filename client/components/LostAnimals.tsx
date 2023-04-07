@@ -7,7 +7,7 @@ import SingleLostAnimal from './LostSingleAnimal'
 export default function AllLostAnimals() {
   const dispatch = useAppDispatch()
   const lostanimals = useAppSelector((state) => state.lostReducer)
- 
+
   const [selected, setSelected] = useState('all')
 
   const options = [
@@ -20,10 +20,9 @@ export default function AllLostAnimals() {
     (animal) => animal.species === selected
   )
 
-
   useEffect(() => {
     dispatch(setAllLost())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
@@ -43,23 +42,24 @@ export default function AllLostAnimals() {
             ))}
           </select>
         </div>
-        
-      <div className="card-header">
-        <p className="card-header-title">Help me, Im lost</p>
-      </div>
+
+        <div className="card-header">
+          <p className="card-header-title">Help me, Im lost</p>
+        </div>
 
         <div className="card-list-container">
-            {filteredAnimals.map((data) => (
-              <SingleLostAnimal lostProp={data} key={data.id} />
-            ))}
+          {filteredAnimals.map((data) => (
+            <SingleLostAnimal lostProp={data} key={data.id} />
+          ))}
         </div>
-        <div>{selected === 'all' && (
-               <div className="card-list-container">
-               {lostanimals.map((data) => (
-                 <SingleLostAnimal lostProp={data} key={data.id} />
-               ))}
-              </div>
-            )} 
+        <div>
+          {selected === 'all' && (
+            <div className="card-list-container">
+              {lostanimals.map((data) => (
+                <SingleLostAnimal lostProp={data} key={data.id} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
