@@ -4,11 +4,15 @@ import { setAllLost } from '../actions/lostAnimals'
 
 import SingleLostAnimal from './LostSingleAnimal'
 
-export default function AllLostAnimals() {
+interface Props {
+  defaultTo: string
+}
+
+export default function AllLostAnimals(petType: Props) {
   const dispatch = useAppDispatch()
   const lostanimals = useAppSelector((state) => state.lostReducer)
 
-  const [selected, setSelected] = useState('all')
+  const [selected, setSelected] = useState(petType.defaultTo)
 
   const options = [
     { label: 'All animals', value: 'all' },
