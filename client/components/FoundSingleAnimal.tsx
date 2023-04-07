@@ -19,12 +19,12 @@ export default function SingleFoundAnimal(props: Props) {
       </div>
 
       <div className="card-content">
-      <p className="title is-3">{species}</p>
+        <p className="title is-3">{species}</p>
       </div>
 
       <div className="card-content" id="species-content">
         <p className="title is-4">
-        Owner: 
+          Owner:
           <span className="title is-5 has-text-weight-normal">{user_name}</span>
         </p>
       </div>
@@ -43,5 +43,6 @@ export default function SingleFoundAnimal(props: Props) {
           </IfNotAuthenticated>
         </div>
       </div>
+    </div>
   )
 }

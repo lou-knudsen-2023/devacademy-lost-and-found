@@ -6,6 +6,7 @@ export type LostAction =
   | { type: 'ADD_LOST'; payload: LostAnimal }
   | { type: 'SET_LOST'; payload: LostAnimal[] }
   | { type: 'DELETE_LOST'; payload: number }
+  | { type: 'SET_ERROR_STATUS'; payload: string }
 
 export function receiveLost(lost: LostAnimal[]): LostAction {
   return {
@@ -28,7 +29,12 @@ export function delLost(lostId: number): LostAction {
   }
 }
 
-//Fetching to dataBase
+export function setErrorStatus(errorMessage: string): LostAction {
+  return {
+    type: 'SET_ERROR_STATUS',
+    payload: errorMessage,
+  }
+}
 
 export function setAllLost(): ThunkAction {
   return (dispatch) => {
@@ -37,7 +43,7 @@ export function setAllLost(): ThunkAction {
         dispatch(receiveLost(lost))
       })
       .catch((err) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }
@@ -52,7 +58,7 @@ export function setAddLost(
         dispatch(addingLost(lost))
       })
       .catch((err) => {
-        return console.log(err.message)
+        dispatch(setErrorStatus(err.message))
       })
   }
 }
