@@ -1,25 +1,28 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { fetchAllLost } from '../actions/lostAnimals'
+import { setAllLost } from '../../client/actions/lostAnimals'
 
 import SingleLostAnimal from './LostSingleAnimal'
+
+interface Props {
+  defaultTo: string
+}
 
 export default function AllLostAnimals() {
   const dispatch = useAppDispatch()
   const lostanimals = useAppSelector((state) => state.lostReducer)
+  const [selected, setSelected] = useState(petType.defaultTo)
   // variable using Appselector to the lost animal reducer
 
   useEffect(() => {
-    dispatch(fetchAllLost())
+    dispatch(setAllLost())
   }, [])
 
   return (
     <>
-      <div className="card-header">
-        <p className="card-header-title">Help me, Im lost</p>
-      </div>
+      <h1>Help me, Im lost</h1>
       <section>
-        <div>
+        <div className="card-list-container">
           {lostanimals.map((data) => (
             <SingleLostAnimal lostProp={data} key={data.id} />
           ))}

@@ -8,10 +8,16 @@ function Home() {
       </div>
       <div className="container is-fullhd">
         <div className="section" id="list-lost-dogs">
-          <Link to="lost">See all lost animals</Link>
+          <Link to="lostDogs">See all lost dogs</Link>
+        </div>
+        <div>
+          <Link to="lostCats">See all lost cats</Link>
         </div>
         <div className="section" id="list-found-dogs">
-          <Link to="found">See all found animals</Link>
+          <Link to="foundDogs">See all found dogs</Link>
+        </div>
+        <div>
+          <Link to="foundCats">See all found cats</Link>
         </div>
       </div>
     </div>
