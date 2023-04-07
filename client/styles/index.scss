@@ -6,11 +6,15 @@
 // Import custom variables and Bulma overides
 @import "./variables.scss";
 
+
+
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
 @import "bulma/sass/base/_all.sass";
+@import "bulma/sass/helpers/_all.sass";
 @import "bulma/sass/layout/section.sass";
 @import "bulma/sass/layout/hero.sass";
+
 @import "bulma/sass/elements/button.sass";
 @import "bulma/sass/elements/container.sass";
 @import "bulma/sass/elements/title.sass";
@@ -20,6 +24,10 @@
 
 body{
   background-color: $light;
+  min-height: 100vh;
+}
+#app{
+  padding-top: 10px;
 }
 
 .hero-body {
@@ -44,6 +52,34 @@ body{
     }
   }
 
+}
+
+#logo{
+  background-color: $mainVariation;
+  border-radius:20px;
+  padding: 10px;
+  &:hover{
+    background-color: darken($mainVariation, 20%);
+  }
+}
+
+.home-animals{
+  box-sizing:border-box;
+  width: 100%;
+  background-color: $neutral;
+  margin: 10px;
+  border-radius:20px;
+  padding: 10px;
+  &:hover{
+    background-color: lighten($light, 20%);
+
+  }
+  @media (min-width:768px){
+    width: calc(50% - 20px)
+  }
+  @media (min-width:1200px){
+    width: calc(25% - 20px)
+  }
 }
 
 

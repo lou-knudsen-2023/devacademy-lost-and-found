@@ -7,9 +7,9 @@ function Header() {
   const { loginWithRedirect, logout, user } = useAuth0()
 
   return (
-    <header className="hero is-small is-primary">
+    <header className="hero is-small ">
       <div className="hero-body has-text-centered">
-        <div>
+        <div id="logo">
           <Link to="/" className="">
             <h1 className="title is-1">Lost and Found</h1>
           </Link>
@@ -56,7 +56,7 @@ function Header() {
             
             <div className="navbar-end">
               <IfAuthenticated>
-                <button className="button is-primary" onClick={() => logout()}>
+                <button className="button is-link" onClick={() => logout()}>
                   Logout
                 </button>
               </IfAuthenticated>
