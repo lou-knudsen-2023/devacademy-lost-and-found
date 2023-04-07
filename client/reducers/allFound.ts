@@ -1,5 +1,5 @@
 import { FoundAction } from '../actions/foundAnimals'
-import { FoundAnimal } from '../../common/FoundAnimal'
+import { FoundAnimal } from '../../common/foundAnimal'
 
 const initialState = [] as FoundAnimal[]
 

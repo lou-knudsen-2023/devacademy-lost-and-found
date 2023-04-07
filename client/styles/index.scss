@@ -6,11 +6,15 @@
 // Import custom variables and Bulma overides
 @import "./variables.scss";
 
+
+
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
 @import "bulma/sass/base/_all.sass";
+@import "bulma/sass/helpers/_all.sass";
 @import "bulma/sass/layout/section.sass";
 @import "bulma/sass/layout/hero.sass";
+
 @import "bulma/sass/elements/button.sass";
 @import "bulma/sass/elements/container.sass";
 @import "bulma/sass/elements/title.sass";
@@ -18,13 +22,91 @@
 @import "bulma/sass/form/_all.sass";
 @import "bulma/sass/components/card.sass";
 
+body{
+  background-color: $light;
+  min-height: 100vh;
+}
+#app{
+  padding: 10px;
+}
+
 .hero-body {
   display: flex;
   justify-content: space-between;
 }
 
-body {
+.hero.is-primary .title{
+  white-space: nowrap;
+}
+.hero .navbar{
+  width: 100%;
+  .navbar-brand{
+    width: 100%;
+  }
+  .menu{
+    width: 100%;
+    ul{
+      display: flex;
+    justify-content: space-around;
+    padding: 9px;
+    }
+  }
+
+}
+
+#logo{
+  background-color: $mainVariation;
+  border-radius:20px;
+  padding: 10px;
+  h1,p{
+    color:$light;
+  }
+
+  &:hover{
+    background-color: darken($mainVariation, 20%);
+  }
+}
+
+.home-animals{
+  box-sizing:border-box;
+  width: 100%;
   background-color: $neutral;
+  margin: 10px;
+  border-radius:20px;
+  padding: 10px;
+  &:hover{
+    background-color: lighten($light, 20%);
+
+  }
+  @media (min-width:768px){
+    width: calc(50% - 20px)
+  }
+  @media (min-width:1200px){
+    width: calc(25% - 20px)
+  }
 }
 
 
+.card-list-container {
+  .card {
+    box-sizing:border-box;
+    width: 100%;
+    margin: 10px;
+
+    @media (min-width:768px){
+      width: calc(50% - 20px)
+    }
+    @media (min-width:1200px){
+      width: calc(25% - 20px)
+    }
+  }
+}
+
+.card-image{
+  figure{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+}

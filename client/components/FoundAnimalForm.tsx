@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { FoundAnimal, FoundAnimalData } from '../../common/FoundAnimal'
 import { useAppDispatch } from '../hooks'
 import { setAddFound } from '../actions/foundAnimals'
 import { useNavigate } from 'react-router-dom'

@@ -1,5 +1,5 @@
 import { ThunkAction } from '../store'
-import { FoundAnimal, FoundAnimalData } from '../../common/FoundAnimal'
+import { FoundAnimal } from '../../common/foundAnimal'
 import { addFound, getAllFound, deleteFound } from '../apis/foundanimals'
 
 export type FoundAction =
@@ -28,15 +28,13 @@ export function delFound(foundId: number): FoundAction {
   }
 }
 
-//Fetching to dataBase
-
 export function setAllFound(): ThunkAction {
   return (dispatch) => {
     return getAllFound()
       .then((found) => {
         dispatch(receiveFound(found))
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         return console.log(err.message)
       })
   }

@@ -1,4 +1,4 @@
-import { LostAnimal } from '../../common/LostAnimal'
+import { LostAnimal } from '../../common/lostAnimal'
 interface Props {
   lostProp: LostAnimal
 }
@@ -7,7 +7,6 @@ export default function SingleLostAnimal(props: Props) {
   const { name, species, photo, user_name, user_contact } = props.lostProp
 
   return (
-    // <div></div>
     <div className="card">
       <div className="card-image">
         <figure className="image is-4by3">
@@ -16,8 +15,12 @@ export default function SingleLostAnimal(props: Props) {
       </div>
 
       <div className="card-content">
-        {/* <div className="card-header"> */}
+<<<<<<< HEAD
         <p className="title is-2">{name}</p>
+=======
+        {/* <div className="card-header"> */}
+        <p className="title is-3">{name}</p>
+>>>>>>> e4ce369e46874bc6578129886267138d6f6cf041
       </div>
 
       <div className="card-content" id="species-content">
@@ -37,20 +40,10 @@ export default function SingleLostAnimal(props: Props) {
         <p className="title is-4">If you find our loved pet contact us: </p>
         <p>{user_contact}</p>
       </div>
-      {/* </div> */}
+
       <div>
         <button className="button is-dark">Found</button>
       </div>
     </div>
   )
-}
-
-{
-  /* if we want to include when the card was posted */
-}
-{
-  /* <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> */
-}
-{
-  /* Could be using delete button when someone click found, therefore it will be excluded from the list */
 }
