@@ -12,7 +12,7 @@ exports.seed = async function (knex) {
       species: 'Dog',
       photo: 'images/dogs/dog1.jpg',
       user_id: '1',
-      user_name: 'bob',
+      user_name: 'Bob',
       user_contact: 'randoman@gmail.com',
     },
     {
@@ -21,7 +21,7 @@ exports.seed = async function (knex) {
       species: 'Cat',
       photo: 'images/cats/cat1.jpg',
       user_id: '2',
-      user_name: 'jerry',
+      user_name: 'Jerry',
       user_contact: 'tom.jerry@gmail.com',
     },
     {
@@ -30,7 +30,7 @@ exports.seed = async function (knex) {
       species: 'Dog',
       photo: 'images/dogs/dog2.jpg',
       user_id: '3',
-      user_name: 'jeff',
+      user_name: 'Jeff',
       user_contact: 'jeffy@gmail.com',
     },
     {
@@ -39,7 +39,7 @@ exports.seed = async function (knex) {
       species: 'Cat',
       photo: 'images/cats/cat2.jpg',
       user_id: '4',
-      user_name: 'geoffrey',
+      user_name: 'Geoffrey',
       user_contact: 'dragons@gmail.com',
     },
   ])

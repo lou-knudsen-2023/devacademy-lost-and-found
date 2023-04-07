@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { setAllFound } from '../actions/foundAnimals'
 import SingleFoundAnimal from './FoundSingleAnimal'
-
 interface Props {
   defaultTo: string
 }
@@ -25,12 +24,14 @@ export default function AllFoundAnimals(petType: Props) {
   useEffect(() => {
     dispatch(setAllFound())
   }, [dispatch])
+
   return (
     <>
       <section>
         <div className="is-flex is-justify-content-space-between is-align-items-center">
-          <div>
-            <h2 className="title is-2 p-3">Good news, I&apos;m found</h2>
+
+        <div>
+            <h2 className="title is-2 p-3">I&apos;m found! Do I belong to you?</h2>
           </div>
 
           <div className="dropDown">

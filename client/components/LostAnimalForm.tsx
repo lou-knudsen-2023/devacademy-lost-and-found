@@ -1,8 +1,22 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { LostAnimal } from '../../common/lostAnimal'
+import { LostAnimal, LostAnimalData } from '../../common/lostAnimal'
+import { useAppDispatch } from '../hooks'
+import { setAddLost } from '../actions/lostAnimals'
+import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function AddLostForm() {
-  const [lostAnimal, setLostAnimal] = useState(null as LostAnimal | null)
+  const [lostAnimal, setLostAnimal] = useState({
+    name: '',
+    species: '',
+    photo: '',
+    user_name: '',
+    user_contact: '',
+  } as LostAnimalData)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const { getAccessTokenSilently } = useAuth0()
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -10,16 +24,15 @@ export default function AddLostForm() {
     setLostAnimal({ ...lostAnimal, [e.target.id]: e.target.value })
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-
-    setLostAnimal({
-      name: '',
-      species: '',
-      photo: '',
-      user_name: '',
-      user_contact: '',
-    } as LostAnimal)
+    try {
+      const token = await getAccessTokenSilently()
+      dispatch(setAddLost(lostAnimal, token))
+      navigate('/lost')
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (

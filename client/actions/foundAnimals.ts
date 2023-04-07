@@ -1,6 +1,6 @@
 import { ThunkAction } from '../store'
-import { FoundAnimal } from '../../common/foundAnimal'
-import { addFound, getAllFound, deleteFound } from '../apis/foundanimals'
+import { FoundAnimal, FoundAnimalData } from '../../common/foundAnimal'
+import { addFound, getAllFound } from '../apis/foundanimals'
 
 export type FoundAction =
   | { type: 'ADD_FOUND'; payload: FoundAnimal }
@@ -48,23 +48,14 @@ export function setAllFound(): ThunkAction {
   }
 }
 
-export function setAddFound(newFound: FoundAnimal): ThunkAction {
+export function setAddFound(
+  newFound: FoundAnimalData,
+  token: string
+): ThunkAction {
   return (dispatch) => {
-    return addFound(newFound)
+    return addFound(newFound, token)
       .then((found) => {
         dispatch(addingFound(found))
-      })
-      .catch((err) => {
-        dispatch(setErrorStatus(err.message))
-      })
-  }
-}
-
-export function setDeleteFound(foundId: number): ThunkAction {
-  return (dispatch) => {
-    return deleteFound(foundId)
-      .then((id) => {
-        dispatch(delFound(id))
       })
       .catch((err) => {
         dispatch(setErrorStatus(err.message))
