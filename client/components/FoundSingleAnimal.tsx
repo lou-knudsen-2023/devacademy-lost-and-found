@@ -19,29 +19,29 @@ export default function SingleFoundAnimal(props: Props) {
       </div>
 
       <div className="card-content">
-      <p className="title is-3">{species}</p>
+        <p className="title is-3">{species}</p>
       </div>
 
       <div className="card-content" id="species-content">
         <p className="title is-4">
-        Owner: 
+          Owner:
           <span className="title is-5 has-text-weight-normal">{user_name}</span>
         </p>
       </div>
       <div id="contact-details-content" className="card-content">
         <p className="title is-4">If you find our loved pet contact: </p>
-          <IfAuthenticated>
-            <p>{user_contact}</p>
-          </IfAuthenticated>
-          <IfNotAuthenticated>
-            <button
-              className="button is-primary"
-              onClick={() => loginWithRedirect()}
-            >
-              Please log in to view details
-            </button>
-          </IfNotAuthenticated>
-        </div>
+        <IfAuthenticated>
+          <p>{user_contact}</p>
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <button
+            className="button is-primary"
+            onClick={() => loginWithRedirect()}
+          >
+            Please log in to view details
+          </button>
+        </IfNotAuthenticated>
       </div>
+    </div>
   )
 }

@@ -29,7 +29,7 @@ export default function AllFoundAnimals(petType: Props) {
     <>
       <section>
         <div className="is-flex is-justify-content-space-between is-align-items-center">
-        <div>
+          <div>
             <h2 className="title is-2 p-3">Good news, I&apos;m found</h2>
           </div>
 
@@ -49,8 +49,6 @@ export default function AllFoundAnimals(petType: Props) {
             </select>
           </div>
         </div>
-
-
 
         <div className="card-list-container is-flex">
           {filteredAnimals.map((data) => (

@@ -18,8 +18,6 @@ function Header() {
           </IfAuthenticated>
         </div>
 
-
-
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <div className="menu">
@@ -51,9 +49,6 @@ function Header() {
               </ul>
             </div>
 
-
-
-            
             <div className="navbar-end">
               <IfAuthenticated>
                 <button className="button is-link" onClick={() => logout()}>
