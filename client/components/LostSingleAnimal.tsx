@@ -15,12 +15,8 @@ export default function SingleLostAnimal(props: Props) {
       </div>
 
       <div className="card-content">
-<<<<<<< HEAD
-        <p className="title is-2">{name}</p>
-=======
         {/* <div className="card-header"> */}
         <p className="title is-3">{name}</p>
->>>>>>> e4ce369e46874bc6578129886267138d6f6cf041
       </div>
 
       <div className="card-content" id="species-content">

@@ -3,6 +3,7 @@ import { useAppDispatch } from '../hooks'
 import { setAddFound } from '../actions/foundAnimals'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import { FoundAnimalData } from '../../common/foundAnimal'
 
 export default function AddFoundForm() {
   const [foundAnimal, setFoundAnimal] = useState({
@@ -10,7 +11,7 @@ export default function AddFoundForm() {
     photo: '',
     user_name: '',
     user_contact: '',
-  })
+  } as FoundAnimalData)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
@@ -21,12 +22,6 @@ export default function AddFoundForm() {
   ) => {
     setFoundAnimal({ ...foundAnimal, [e.target.id]: e.target.value })
   }
-
-  // const handleSubmit = (e: FormEvent) => {
-  //   e.preventDefault()
-  //   dispatch(setAddFound(foundAnimal))
-  //   navigate('/found')
-  // }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()

@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { FoundAnimal } from '../../common/foundAnimal'
+import { FoundAnimal, FoundAnimalData } from '../../common/foundAnimal'
 
 const foundUrl = '/api/v1/found'
 
@@ -8,7 +8,7 @@ export function getAllFound(): Promise<FoundAnimal[]> {
 }
 
 export function addFound(
-  newFound: FoundAnimal,
+  newFound: FoundAnimalData,
   token: string
 ): Promise<FoundAnimal> {
   return request
