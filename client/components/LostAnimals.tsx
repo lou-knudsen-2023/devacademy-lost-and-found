@@ -26,7 +26,7 @@ export default function AllLostAnimals(petType: Props) {
 
   useEffect(() => {
     dispatch(setAllLost())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
