@@ -14,7 +14,7 @@ function Header() {
             <h1 className="title is-1">Lost and Found</h1>
           </Link>
           <IfAuthenticated>
-            <p className="subtitle">{user?.nickname}</p>
+            <p className="">{user?.nickname}</p>
           </IfAuthenticated>
         </div>
 

@@ -27,7 +27,7 @@ body{
   min-height: 100vh;
 }
 #app{
-  padding-top: 10px;
+  padding: 10px;
 }
 
 .hero-body {
@@ -58,6 +58,10 @@ body{
   background-color: $mainVariation;
   border-radius:20px;
   padding: 10px;
+  h1,p{
+    color:$light;
+  }
+
   &:hover{
     background-color: darken($mainVariation, 20%);
   }
