@@ -43,6 +43,7 @@ The lost table stores the animals that users have lost. THis contains the follow
 - table.string('user_name')
 - table.string('user_contact')
 
-## API Routes
+## API (Client-Server)
+
 
 ## 

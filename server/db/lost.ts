@@ -1,27 +1,10 @@
 import connection from './connection'
-import { LostAnimal } from '../../common/LostAnimal'
+import { LostAnimal } from '../../common/lostAnimal'
 
-//gets all lost pets and returns them
 export function getAllLost(db = connection) {
   return db('lost').select()
 }
 
-//sends lost Pet with matching ID into found table
-export async function makeFound(id: number, db = connection) {
-  try {
-    const lostPet = await db('lost').select().where('id', id).first()
-    if (lostPet) {
-      await db('found').insert(lostPet)
-      await db('lost').where('id', id).del()
-      return true //indicates pet was successfully moved
-    }
-    return false //indicates pet was not moved
-  } catch (error) {
-    throw 500
-  }
-}
-
-//creates a new lost pet and returns their info
 export function createLost(lostObj: LostAnimal, db = connection) {
   return db('lost')
     .insert({
@@ -44,7 +27,7 @@ export function createLost(lostObj: LostAnimal, db = connection) {
 }
 
 export function getOneLostAnimal(id: number, db = connection) {
-  return db('lost').first().where({ id })
+  return db('lost').first().where('id', id)
 }
 
 export function updateLostAnimal(

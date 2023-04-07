@@ -1,12 +1,10 @@
 import connection from './connection'
-import { FoundAnimal } from '../../common/FoundAnimal'
+import { FoundAnimal } from '../../common/foundAnimal'
 
-//gets all found pets and returns them
 export function getAllFound(db = connection) {
   return db('found').select()
 }
 
-//creates a new found pet and returns their info
 export function createFound(foundObj: FoundAnimal, db = connection) {
   return db('found')
     .insert({

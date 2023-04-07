@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { FoundAnimal } from '../../common/FoundAnimal'
+import { FoundAnimal } from '../../common/foundAnimal'
 
 const foundUrl = '/api/v1/found'
 
@@ -14,6 +14,6 @@ export function addFound(newFound: FoundAnimal): Promise<FoundAnimal> {
     .then((res) => res.body)
 }
 
-export function deleteFound(foundId: number): Promise<number> {
+export function deleteFound(foundId: number): Promise<FoundAnimal[]> {
   return request.del(`${foundUrl}/${foundId}`).then((res) => res.body)
 }

@@ -1,4 +1,4 @@
-import { FoundAnimal } from '../../common/FoundAnimal'
+import { FoundAnimal } from '../../common/foundAnimal'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -17,10 +17,8 @@ export default function SingleFoundAnimal(props: Props) {
         <div className="card-text-bottom">
           <h2>Species:</h2>
           <p>{species}</p>
-          <br></br>
           <h2>Owner:</h2>
           <p>{user_name}</p>
-          <br></br>
           <h2>If you find our loved pet contact us :</h2>
           <IfAuthenticated>
             <p>{user_contact}</p>
