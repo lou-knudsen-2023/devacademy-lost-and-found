@@ -27,7 +27,7 @@ body{
   min-height: 100vh;
 }
 #app{
-  padding-top: 10px;
+  padding: 10px;
 }
 
 .hero-body {
@@ -58,6 +58,10 @@ body{
   background-color: $mainVariation;
   border-radius:20px;
   padding: 10px;
+  h1,p{
+    color:$light;
+  }
+
   &:hover{
     background-color: darken($mainVariation, 20%);
   }
@@ -83,4 +87,26 @@ body{
 }
 
 
+.card-list-container {
+  .card {
+    box-sizing:border-box;
+    width: 100%;
+    margin: 10px;
 
+    @media (min-width:768px){
+      width: calc(50% - 20px)
+    }
+    @media (min-width:1200px){
+      width: calc(25% - 20px)
+    }
+  }
+}
+
+.card-image{
+  figure{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+}

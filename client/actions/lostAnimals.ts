@@ -1,5 +1,5 @@
 import { ThunkAction } from '../store'
-import { LostAnimal } from '../../common/LostAnimal'
+import { LostAnimal } from '../../common/lostAnimal'
 import { addLost, getAllLost, deleteLost } from '../apis/lostanimals'
 
 export type LostAction =

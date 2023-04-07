@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { LostAnimal } from '../../common/LostAnimal'
+import { LostAnimal } from '../../common/lostAnimal'
 
 const lostUrl = '/api/v1/lost'
 
