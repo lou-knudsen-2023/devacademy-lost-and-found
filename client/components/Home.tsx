@@ -12,28 +12,28 @@ function Home() {
         <figure className="home-animals" >
           <Link to="lostDogs">
             <img src="./images/lost-dogs.svg" alt="" />
-            See all lost dogs
+            <p className="title is-5">See all lost dogs</p>
             </Link>
         </figure>
 
         <figure className="home-animals">
           <Link to="lostCats">
           <img src="./images/lost-cats.svg" alt="" />
-            See all lost cats
+            <p className="title is-5">See all lost cats</p>
             </Link>
         </figure>
 
         <figure className="home-animals" >
           <Link to="foundDogs">
           <img src="./images/found-dogs.svg" alt="" />
-            See all found dogs
+            <p className="title is-5">See all found dogs</p>
             </Link>
         </figure>
 
         <figure className="home-animals">
           <Link to="foundCats">
           <img src="./images/found-cats.svg" alt="" />
-            See all found cats
+            <p className="title is-5">See all found cats</p>
             </Link>
         </figure>
         
