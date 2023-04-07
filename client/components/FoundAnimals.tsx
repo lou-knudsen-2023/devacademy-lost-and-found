@@ -13,8 +13,8 @@ export default function AllFoundAnimals(petType: Props) {
 
   const options = [
     { label: 'All animals', value: 'all' },
-    { label: 'Cat', value: 'cat' },
-    { label: 'Dog', value: 'dog' },
+    { label: 'Cat', value: 'Cat' },
+    { label: 'Dog', value: 'Dog' },
   ]
 
   const filteredAnimals = foundanimals.filter(
@@ -29,9 +29,10 @@ export default function AllFoundAnimals(petType: Props) {
     <>
       <section>
         <div className="is-flex is-justify-content-space-between is-align-items-center">
-
-        <div>
-            <h2 className="title is-2 p-3">I&apos;m found! Do I belong to you?</h2>
+          <div>
+            <h2 className="title is-2 p-3">
+              I&apos;m found! Do I belong to you?
+            </h2>
           </div>
 
           <div className="dropDown">
