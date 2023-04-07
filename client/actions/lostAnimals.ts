@@ -36,8 +36,6 @@ export function setErrorStatus(errorMessage: string): LostAction {
   }
 }
 
-//Fetching to dataBase
-
 export function setAllLost(): ThunkAction {
   return (dispatch) => {
     return getAllLost()
