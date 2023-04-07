@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
     .then((lostArr) => {
       res.json(lostArr)
     })
-    .catch((err: Error) => console.log(err.message))
+    .catch((err: Error) => {
+      res.status(500).send(err.message)
+    })
 })
 
 router.post('/', checkJwt, (req: JwtRequest, res) => {
