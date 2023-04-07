@@ -30,7 +30,7 @@ export default function AllFoundAnimals(petType: Props) {
       <section>
         <div className="is-flex is-justify-content-space-between is-align-items-center">
         <div>
-            <h2 className="title is-2 p-3">Good news, I&apos;m found</h2>
+            <h2 className="title is-2 p-3">I&apos;m found! Do I belong to you?</h2>
           </div>
 
           <div className="dropDown">
