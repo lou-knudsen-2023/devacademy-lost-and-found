@@ -31,34 +31,36 @@ export default function AllLostAnimals(petType: Props) {
   return (
     <>
       <section>
-        <div className="dropDown">
-          <label htmlFor="form">Select a sort option: </label>
-          <select
-            id="form"
-            value={selected}
-            onChange={(e) => setSelected(e.target.value)}
-          >
-            <option value="">Select an option</option>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+        <div className="is-flex is-justify-content-space-between is-align-items-center">
+          <div>
+            <h2 className="title is-2 p-3">Help me, I&apos;m lost</h2>
+          </div>
+
+          <div className="dropDown">
+            <label htmlFor="form">Select a sort option: </label>
+            <select
+              id="form"
+              value={selected}
+              onChange={(e) => setSelected(e.target.value)}
+            >
+              <option value="">Select an option</option>
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
-        <div className="card-header">
-          <p className="card-header-title">Help me, Im lost</p>
-        </div>
-
-        <div className="card-list-container">
+        <div className="card-list-container is-flex">
           {filteredAnimals.map((data) => (
             <SingleLostAnimal lostProp={data} key={data.id} />
           ))}
         </div>
         <div>
           {selected === 'all' && (
-            <div className="card-list-container">
+            <div className="card-list-container is-flex">
               {lostanimals.map((data) => (
                 <SingleLostAnimal lostProp={data} key={data.id} />
               ))}
@@ -69,3 +71,6 @@ export default function AllLostAnimals(petType: Props) {
     </>
   )
 }
+
+
+
