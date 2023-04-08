@@ -1,11 +1,26 @@
-
+import { useEffect, useState } from 'react';
 import * as Models from "../../models/NotesMods";
+import { fetchNotesAPI } from '../apis/notesAPI';
 
-interface Props {
-    note: Models.Note;
-}
+type Props = {
+  id: number;
+};
 
-export function SingleNote({ note }: Props) {
+export function SingleNote({ id }: Props) {
+  const [note, setNote] = useState<Models.NotesData | null>(null);
+
+  useEffect(() => {
+    fetchNotesAPI(id)
+      .then((data) => {
+        setNote(data);
+      })
+      .catch((err) => alert(err.message));
+  }, [id]);
+
+  if (!note) {
+    return <div>Loading note data...</div>;
+  }
+
   return (
     <div>
       <h3>{note.title}</h3>
