@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {
     note: Models.Note;
-    showButton?: boolean; // add a showButton prop
+    showButton?: boolean
 }
 
 export function SingleNote({ note, showButton = false }: Props) {

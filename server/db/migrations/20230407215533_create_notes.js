@@ -8,7 +8,7 @@ exports.up = function (knex) {
     table.string('title')
     table.text('description')
     table.string('category').defaultTo(null)
-    table.string('group_id').references('groups.id').defaultTo(null)
+    table.string('group_id').defaultTo(null)
     table.string('added_by_user')
   })
 }
