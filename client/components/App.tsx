@@ -16,9 +16,13 @@ function App() {
         </IfNotAuthenticated>
 
         <IfAuthenticated>
-
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/notes/:id" element={<EditNote />} />
+          </Routes>
         </IfAuthenticated> */}
-                  <Routes>
+        
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/notes/:id" element={<EditNote />} />
           </Routes>

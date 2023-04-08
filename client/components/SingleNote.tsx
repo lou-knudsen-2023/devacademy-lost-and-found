@@ -21,7 +21,7 @@ export function SingleNote({ note, showButton = false }: Props) {
       <p>Category: {note.category}</p>
       <p>Group ID: {note.group_id}</p>
       <p>Added by: {note.added_by_user}</p>
-      {showButton && <button onClick={handleClick}>Go to Note</button>}
+      {showButton && <button onClick={handleClick}>Edit Note</button>}
     </div>
   );
 }

@@ -58,7 +58,7 @@ router.get('/', (req, res) => {
   router.delete('/:id', (req,res) =>{
     db.delNoteDB (+req.params.id)
     .then(() => {
-      res.sendStatus(200)
+      res.sendStatus(200) 
     })
     .catch((err) => {
       res.status(500).send(err.message)
