@@ -11,16 +11,17 @@ function App() {
     <div className="container has-text-centered">
       <Header />
       <div>
-        <IfNotAuthenticated>
+        {/* <IfNotAuthenticated>
           <Login />
         </IfNotAuthenticated>
 
         <IfAuthenticated>
-          <Routes>
+
+        </IfAuthenticated> */}
+                  <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/notes/:id" element={<EditNote />} />
           </Routes>
-        </IfAuthenticated>
       </div>
     </div>
   )
