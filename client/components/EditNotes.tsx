@@ -58,12 +58,12 @@ export function EditNote() {
       [e.target.name]: e.target.value,
     })
   }
-  const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setDataForm({
-      ...dataForm,
-      [e.target.name]: e.target.value,
-    })
-  }
+  // const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  //   setDataForm({
+  //     ...dataForm,
+  //     [e.target.name]: e.target.value,
+  //   })
+  // }
 
     //////submit the data
   const handleSubmit = (evt: FormEvent) => {

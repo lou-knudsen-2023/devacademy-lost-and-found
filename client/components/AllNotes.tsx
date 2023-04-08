@@ -2,8 +2,18 @@ import { useEffect, useState} from 'react';
 import * as Models from "../../models/NotesMods";
 import { fetchNotesAPI } from '../apis/notesAPI';
 import { SingleNote } from './SingleNote';
+import { AddNote } from "./AddNote"
+
+
 
 export function AllNotes(){
+  // const updateNotes = (note: Models.Note) => {
+  //   setNotes([...notes, note]);
+  // }
+
+
+
+
     const [notes, setNotes] = useState([] as Models.Note[]);
 
     useEffect(() => {
@@ -19,6 +29,8 @@ export function AllNotes(){
           {notes.map((note) => (
           <SingleNote key={note.id} note={note} showButton={true}/>
           ))}
+{/* 
+<AddNote updateNotes={updateNotes} /> */}
         </div>
       );
 }
