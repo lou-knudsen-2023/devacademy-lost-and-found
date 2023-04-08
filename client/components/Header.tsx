@@ -11,7 +11,7 @@ function Header() {
       <div className="hero-body has-text-centered">
         <div>
           <Link to="/" className="">
-            <h1 className="title is-1">Lost and Found</h1>
+            <h1 className="title is-1">Notes</h1>
           </Link>
           <IfAuthenticated>
             <p className="subtitle">{user?.nickname}</p>
