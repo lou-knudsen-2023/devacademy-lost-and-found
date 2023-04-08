@@ -29,6 +29,7 @@ export function updateNoteDB(
     data: NotesData,
     db = connection
   ): Promise<NotesData[]> {
+    console.log(data)
     return db('notes')
       .where('id', id)
       .update(data)

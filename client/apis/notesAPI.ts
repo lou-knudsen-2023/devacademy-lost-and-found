@@ -32,9 +32,9 @@ export function getNoteAPI(id: number){
 
 }
   //*******************Edit existing
-  export function updateNote(id:number,obj:NotesData): Promise<NotesData>{
+  export function updateNoteAPI(id:number,obj:NotesData): Promise<NotesData>{
     return request
-    .patch(notesUrl)
+    .patch(`${notesUrl}/${id}`)
     .send(obj)
     .then((res) => {return res.body})
 
