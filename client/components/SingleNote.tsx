@@ -1,5 +1,6 @@
 import * as Models from "../../models/NotesMods";
 import { useNavigate } from "react-router-dom";
+import * as API from '../apis/notesAPI';
 
 interface Props {
     note: Models.Note;
@@ -14,14 +15,21 @@ export function SingleNote({ note, showButton = false }: Props) {
    navigate(`/notes/${note.id}`);
   };
 
+  ////// DELETE THE NOTE
+const handleDel = () => {
+  if (note) {
+    API.delNoteAPI(note.id)
+    navigate('/')
+  }
+}
+
   return (
     <div>
       <h3>{note.title}</h3>
       <p>{note.description}</p>
       <p>Category: {note.category}</p>
-      {/* <p>Group ID: {note.group_id}</p>
-      <p>Added by: {note.added_by_user}</p> */}
       {showButton && <button onClick={handleClick}>Edit Note</button>}
+      <button className="del_button" onClick={handleDel}>Delete</button>
     </div>
   );
 }

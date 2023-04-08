@@ -1,21 +1,21 @@
 import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { useParams } from 'react-router-dom';
-import { getNoteAPI, delNoteAPI, updateNoteAPI } from '../apis/notesAPI';
-import { Note } from '../../models/NotesMods';
+import * as API from '../apis/notesAPI';
+import * as Models from "../../models/NotesMods";
 import { useNavigate } from 'react-router-dom';
 
 
 
 export function EditNote() {
   const { id } = useParams<{ id: string }>();
-  const [note, setNote] = useState<Note | undefined>(undefined);
+  const [note, setNote] = useState<Models.Note | undefined>(undefined);
   const navigate = useNavigate();
 
 
 
   ///GET THE NOTE
   useEffect(() => {
-    getNoteAPI(Number(id))
+   API.getNoteAPI(Number(id))
       .then((data) => {
         setNote(data);
       })
@@ -27,18 +27,11 @@ export function EditNote() {
 
   ////UPDATE Note//////
   //this pulls in the data to use in the form
-  //is there a better way to get this state?
-  const [dataForm, setDataForm] = useState<{
-    title:string
-    description: string
-    category:string
- 
-  }>({
+  const [dataForm, setDataForm] = useState<Models.NotesData>({
     title: '',
     description: '',
     category: '',
- 
-  })
+  });
 
   //this fills out the form fields with the current data (and changes being made)
   useEffect(() => {
@@ -58,48 +51,37 @@ export function EditNote() {
       [e.target.name]: e.target.value,
     })
   }
-  // const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-  //   setDataForm({
-  //     ...dataForm,
-  //     [e.target.name]: e.target.value,
-  //   })
-  // }
+  const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value,
+    })
+  }
 
     //////submit the data
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
-    updateNoteAPI(Number(id), dataForm)
-    // console.log(dataForm)
+    API.updateNoteAPI(Number(id), dataForm)
     navigate('/')
   }
-
-
-////// DELETE THE NOTE
-const handleDel = () => {
-  if (note) {
-    delNoteAPI(note.id)
-    navigate('/')
-  }
-}
-
 
   return (
     <>
     <form onSubmit={handleSubmit}>
         <label htmlFor='title'>Title</label>
-        <input 
-          type='text'
+        <textarea
+          rows={5}
           name='title'
           value={dataForm.title}
-          onChange={handleUpdate}
+          onChange={handleTextareaChange}
         />
 
         <label htmlFor="description">Description</label>
-        <input 
-          type='text'
+        <textarea
+          rows={5}
           name='description'
-            value={dataForm.description}
-            onChange={handleUpdate}
+          value={dataForm.description}
+          onChange={handleTextareaChange}
         />
 
         <label htmlFor='category'>Category</label>
@@ -113,7 +95,7 @@ const handleDel = () => {
         <button type='submit'>Update</button>  
     </form>
 
-    <button className="del_button" onClick={handleDel}>Delete</button>
+
     </>
   );
 }

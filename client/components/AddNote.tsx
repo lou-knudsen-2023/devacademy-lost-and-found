@@ -1,11 +1,12 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent} from 'react';
 import {makeNewAPI} from '../apis/notesAPI';
-import { Note } from '../../models/NotesMods';
+import { NotesData } from '../../models/NotesMods';
 
-
+ 
 export function AddNote() {
 
-const [dataForm, setDataForm] = useState({} as Note)
+
+const [dataForm, setDataForm] = useState({} as NotesData)
 
   // this allows user to change current state of form fields
   const handleUpdate = (e: ChangeEvent<HTMLInputElement>) => {
@@ -15,10 +16,30 @@ const [dataForm, setDataForm] = useState({} as Note)
     })
   }
 
+  const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value,
+    })
+  }
+
     //////submit the data
   const handleSubmit = (evt: FormEvent) => {
-    evt.preventDefault()
+    evt.preventDefault();
     makeNewAPI(dataForm)
+
+    .then(() => {
+    //to resetting the state of dataForm after the note is added
+    // setDataForm({} as Note) - this didnt work, as telling the compiler to trust you that the empty object you're creating conforms to the Note type.
+    //object literal notation, you are creating an object with properties that match the ones expected by the Note type
+        setDataForm({
+            title: '',
+            description: '',
+            category: '',
+          })
+
+      })
+      .catch((err) => alert(err.message))
   }
 
 
@@ -26,20 +47,20 @@ const [dataForm, setDataForm] = useState({} as Note)
   return (
     <>
     <form onSubmit={handleSubmit}>
-        <label htmlFor='title'>Title</label>
-        <input 
-          type='text'
+    <label htmlFor='title'>Title</label>
+        <textarea
+          rows={5}
           name='title'
           value={dataForm.title}
-          onChange={handleUpdate}
+          onChange={handleTextareaChange}
         />
 
         <label htmlFor="description">Description</label>
-        <input 
-          type='text'
+        <textarea
+          rows={5}
           name='description'
-            value={dataForm.description}
-            onChange={handleUpdate}
+          value={dataForm.description}
+          onChange={handleTextareaChange}
         />
 
         <label htmlFor='category'>Category</label>

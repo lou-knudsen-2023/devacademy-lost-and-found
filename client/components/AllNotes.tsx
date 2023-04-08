@@ -7,30 +7,29 @@ import { AddNote } from "./AddNote"
 
 
 export function AllNotes(){
-  // const updateNotes = (note: Models.Note) => {
-  //   setNotes([...notes, note]);
-  // }
-
-
-
-
     const [notes, setNotes] = useState([] as Models.Note[]);
 
+
+    //useEffect hook will run every time the notes state changes, which means it will fetch the latest notes data whenever a new note is added.
     useEffect(() => {
-        fetchNotesAPI()
-          .then((data) => {
-            setNotes(data);
-          })
-          .catch((err) => alert(err.message));
-      }, []);
+      fetchNotesAPI()
+        .then((data) => {
+          setNotes(data);
+        })
+        .catch((err) => alert(err.message));
+        //fetching new notes by adding this array
+    }, [notes])
+
+
+
+
 
       return (
         <div className="note-wrapper">
           {notes.map((note) => (
           <SingleNote key={note.id} note={note} showButton={true}/>
           ))}
-{/* 
-<AddNote updateNotes={updateNotes} /> */}
+          <AddNote  />
         </div>
       );
 }
