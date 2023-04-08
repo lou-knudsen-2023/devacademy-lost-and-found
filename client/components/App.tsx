@@ -4,7 +4,7 @@ import Header from './Header'
 import Login from './Login'
 import Home from './Home'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-import { SingleNote } from './SingleNote'
+import { EditNote } from './EditNotes'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <IfAuthenticated>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/notes/:id" element={<SingleNote />} />
+            <Route path="/notes/:id" element={<EditNote />} />
           </Routes>
         </IfAuthenticated>
       </div>

@@ -9,7 +9,17 @@ export function fetchNotesAPI(){
     .get(notesUrl)
     .then((res) => {return res.body})
     .catch((err) => {return err.message})
+}
 
+
+
+  //*******************Get single
+export function getNoteAPI(id: number){
+  const url = `${notesUrl}/${id}`;
+  return request
+  .get(url)
+  .then((res) => {return res.body})
+  .catch((err) => {return err.message})
 }
 
  //*******************Make new

@@ -1,6 +1,6 @@
 //DATABASE
 import connection from './connection'
-import {NotesData} from '../../models/NotesMods'
+import {NotesData, Note} from '../../models/NotesMods'
 
 
   //*******************Get all
@@ -8,13 +8,17 @@ export function getAllNotesDB(db = connection): Promise<NotesData[]>{
     return db('notes').select()
 }
 
+  //*******************Get single
+  export function getNoteDB(id:number, db = connection): Promise<Note>{
+    return db('notes').where('id', id).first();
+  }
 
  //*******************Make new
 export function createNewNoteDB (
-    formdata:NotesData,
+    formData:NotesData,
     db = connection
 ) : Promise<NotesData[]> {
-    return db('notes').insert(formdata)
+    return db('notes').insert(formData)
     .returning('*')
 }
 

@@ -1,25 +1,18 @@
-import { useEffect, useState } from 'react';
 import * as Models from "../../models/NotesMods";
-import { fetchNotesAPI } from '../apis/notesAPI';
+import { useNavigate } from "react-router-dom";
 
-type Props = {
-  id: number;
-};
+interface Props {
+    note: Models.Note;
+    showButton?: boolean; // add a showButton prop
+}
 
-export function SingleNote({ id }: Props) {
-  const [note, setNote] = useState<Models.NotesData | null>(null);
+export function SingleNote({ note, showButton = false }: Props) {
 
-  useEffect(() => {
-    fetchNotesAPI(id)
-      .then((data) => {
-        setNote(data);
-      })
-      .catch((err) => alert(err.message));
-  }, [id]);
+  const navigate = useNavigate();
 
-  if (!note) {
-    return <div>Loading note data...</div>;
-  }
+  const handleClick = () => {
+   navigate(`/notes/${note.id}`);
+  };
 
   return (
     <div>
@@ -28,6 +21,8 @@ export function SingleNote({ id }: Props) {
       <p>Category: {note.category}</p>
       <p>Group ID: {note.group_id}</p>
       <p>Added by: {note.added_by_user}</p>
+      {showButton && <button onClick={handleClick}>Go to Note</button>}
     </div>
   );
 }
+

@@ -16,6 +16,17 @@ router.get('/', (req, res) => {
       })
   })
 
+  router.get('/:id', (req, res) => {
+    const id = Number(req.params.id)
+    db.getNoteDB(id)
+      .then((data) => {
+        res.json(data)
+      })
+      .catch((err: Error) => {
+        res.status(500).send(err.message)
+      })
+  })
+
   //*******************Make new
   router.post('/', (req, res) => {
     db.createNewNoteDB(req.body)
