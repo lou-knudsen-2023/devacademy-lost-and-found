@@ -7,7 +7,7 @@ exports.seed = async function (knex) {
   await knex('lost').del()
   await knex('lost').insert([
     {
-      id: 1,
+      id: 10,
       name: 'Human Skills',
       species: 'Dog',
       photo: 'images/dogs/dog1.jpg',
@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
       user_contact: 'randoman@gmail.com',
     },
     {
-      id: 2,
+      id: 12,
       name: 'Pixel',
       species: 'Cat',
       photo: 'images/cats/cat1.jpg',
@@ -25,7 +25,7 @@ exports.seed = async function (knex) {
       user_contact: 'tom.jerry@gmail.com',
     },
     {
-      id: 3,
+      id: 13,
       name: 'Pickle',
       species: 'Dog',
       photo: 'images/dogs/dog2.jpg',
@@ -34,7 +34,7 @@ exports.seed = async function (knex) {
       user_contact: 'jeffy@gmail.com',
     },
     {
-      id: 4,
+      id: 14,
       name: 'Generic Cat',
       species: 'Cat',
       photo: 'images/cats/cat2.jpg',
