@@ -32,6 +32,7 @@ const [dataForm, setDataForm] = useState({
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     try {
+      // This function retrieves a new access token for the authenticated user from the Auth0 server.  token is then passed as an argument to the makeNewAPI function. In summary, the token is used to authenticate and authorize the user when making an HTTP request to create a new note.
       const token = await getAccessTokenSilently()
       await makeNewAPI(dataForm, token)
       

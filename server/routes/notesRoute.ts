@@ -42,7 +42,10 @@ router.get('/', (req, res) => {
   
   router.post('/', checkJwt, (req: JwtRequest, res) => {
     const { title,  description, category} = req.body
+
     const auth0Id = req.auth?.sub
+    //get this info from the token
+    //The checkJwt middleware function decodes and verifies the JWT token's signature and adds the authenticated user's identity information to the req object as req.auth.
 
     if (!auth0Id) {
       console.error('No auth0Id')

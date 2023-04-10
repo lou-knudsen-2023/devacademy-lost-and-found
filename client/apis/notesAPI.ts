@@ -23,6 +23,8 @@ export function getNoteAPI(id: number){
 }
 
  //*******************Make new
+ //The server-side endpoint expects an access token to be present in the request, which is used to authenticate and authorize the user making the request.
+ //By passing the token as an argument to the makeNewAPI function, the access token is included in the HTTP request headers, allowing the server to verify the user's identity and grant them access to the requested resource.
  export function makeNewAPI(newThing: NotesData, token:string): Promise<NotesData[]>{
   console.log(newThing)
     return request
