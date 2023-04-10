@@ -5,9 +5,11 @@ import * as API from '../apis/notesAPI';
 interface Props {
     note: Models.Note;
     showButton?: boolean
+    //Receive the refreshList prop in the SingleNote component
+    refreshList: () => void;
 }
 
-export function SingleNote({ note, showButton = false }: Props) {
+export function SingleNote({ note, showButton = false, refreshList }: Props) {
 
   const navigate = useNavigate();
 
@@ -19,7 +21,12 @@ export function SingleNote({ note, showButton = false }: Props) {
 const handleDel = () => {
   if (note) {
     API.delNoteAPI(note.id)
-    navigate('/')
+    //Call the refreshList function after deleting the note in the handleDel function
+    .then(() => {
+      refreshList();
+    })
+    .catch((err) => alert(err.message));
+    // navigate('/')
   }
 }
 

@@ -31,9 +31,11 @@ export function AllNotes(){
   return (
     <div className="note-wrapper">
       {notes.map((note) => (
-        <SingleNote key={note.id} note={note} showButton={true}/>
+        //Pass the refreshList function as a prop to the SingleNote component
+        <SingleNote key={note.id} note={note} showButton={true} refreshList={refreshList}/>
       ))}
      <AddNote refreshList={refreshList} />
+
     </div>
   )
 }

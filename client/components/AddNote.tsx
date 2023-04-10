@@ -33,10 +33,13 @@ const [dataForm, setDataForm] = useState({
     e.preventDefault()
     try {
       const token = await getAccessTokenSilently()
-      const noteX = await makeNewAPI(dataForm, token)
+      await makeNewAPI(dataForm, token)
       
-      setDataForm(noteX[0])
-
+      setDataForm({
+        title: '',
+        description: '',
+        category: ''
+      })
 
       refreshList()
 
