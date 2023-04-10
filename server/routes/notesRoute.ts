@@ -1,7 +1,8 @@
 import express from 'express'
-
+import { NotesData, UserData} from '../../models/NotesMods';
 import * as db from '../db/notesDB'
-
+import { JwtRequest} from '../auth0'
+import checkJwt from '../auth0'
 const router = express.Router()
 
 
@@ -28,8 +29,34 @@ router.get('/', (req, res) => {
   })
 
   //*******************Make new
-  router.post('/', (req, res) => {
-    db.createNewNoteDB(req.body)
+  // router.post('/', (req, res) => {
+  //   db.createNewNoteDB(req.body)
+  //     .then((data) => {
+  //       res.json(data)
+  //     })
+  //     .catch((err) => {
+  //       res.status(500).send(err.message)
+  //     })
+  // })
+
+  
+  router.post('/', checkJwt, (req: JwtRequest, res) => {
+    const { title,  description, category} = req.body
+    const auth0Id = req.auth?.sub
+
+    if (!auth0Id) {
+      console.error('No auth0Id')
+      return res.status(401).send('Unauthorized')
+    }
+  
+    const newNote: UserData = {
+      title,
+      description,
+      category,
+      added_by_user: auth0Id  
+    }
+  
+    db.createNewNoteDB(newNote)
       .then((data) => {
         res.json(data)
       })
@@ -37,6 +64,24 @@ router.get('/', (req, res) => {
         res.status(500).send(err.message)
       })
   })
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   //*******************Edit existing
 

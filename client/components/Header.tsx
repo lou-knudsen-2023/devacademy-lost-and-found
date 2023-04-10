@@ -24,6 +24,7 @@ function Header() {
                 <button className="button is-primary" onClick={() => logout()}>
                   Logout
                 </button>
+
               </IfAuthenticated>
               <IfNotAuthenticated>
                 <button

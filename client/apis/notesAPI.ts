@@ -1,5 +1,5 @@
 import request from 'superagent'
-import {NotesData} from '../../models/NotesMods'
+import {NotesData, Note} from '../../models/NotesMods'
 const notesUrl = '/api/v1/notes'
 
 
@@ -23,14 +23,16 @@ export function getNoteAPI(id: number){
 }
 
  //*******************Make new
- export function makeNewAPI(newThing: NotesData){
+ export function makeNewAPI(newThing: NotesData, token:string): Promise<NotesData[]>{
+  console.log(newThing)
     return request
     .post(notesUrl)
+    .set('Authorization', `Bearer ${token}`)
     .send(newThing)
     .then((res) => {return res.body})
-
-
 }
+
+
   //*******************Edit existing
   export function updateNoteAPI(id:number,obj:NotesData): Promise<NotesData>{
     return request
