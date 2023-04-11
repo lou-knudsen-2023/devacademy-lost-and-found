@@ -35,6 +35,10 @@ const handleDel = () => {
       <h3>{note.title}</h3>
       <p>{note.description}</p>
       <p>Category: {note.category}</p>
+      <p><a href={note.link}>{note.link}</a></p>
+      <div>
+        <img src={note.image} alt={`${note.category} related memory prompt`}/>
+      </div>
       {showButton && <button onClick={handleClick}>Edit Note</button>}
       <button className="del_button" onClick={handleDel}>Delete</button>
     </div>

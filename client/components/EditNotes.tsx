@@ -31,6 +31,8 @@ export function EditNote() {
     title: '',
     description: '',
     category: '',
+    link:'',
+    image:''
   });
 
   //this fills out the form fields with the current data (and changes being made)
@@ -40,6 +42,8 @@ export function EditNote() {
         title: note.title,
         description: note.description,
         category: note.category,
+        link:note.link,
+        image:note.image
       })
     }
   }, [note])
@@ -82,6 +86,21 @@ export function EditNote() {
           name='description'
           value={dataForm.description}
           onChange={handleTextareaChange}
+        />
+              <label htmlFor='image'>Image</label>
+        <input 
+          type='file'
+          name='image'
+          value={dataForm.image}
+          onChange={handleUpdate}
+        />
+
+      <label htmlFor='link'>Link</label>
+        <input 
+          type='text'
+          name='link'
+          value={dataForm.link}
+          onChange={handleUpdate}
         />
 
         <label htmlFor='category'>Category</label>

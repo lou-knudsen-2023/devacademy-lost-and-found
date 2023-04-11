@@ -1,6 +1,8 @@
 export interface NotesData{
     title:string
     description: string
+    link:string
+    image:string
     category:string
 }
 

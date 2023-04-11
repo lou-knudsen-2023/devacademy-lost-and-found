@@ -6,7 +6,9 @@ exports.up = function (knex) {
   return knex.schema.createTable('notes', (table) => {
     table.increments('id').primary()
     table.string('title')
-    table.text('description')
+    table.string('description')
+    table.string('image')
+    table.string('link')
     table.string('category').defaultTo(null)
     table.string('group_id').defaultTo(null)
     table.string('added_by_user')

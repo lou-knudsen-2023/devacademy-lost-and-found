@@ -28,24 +28,14 @@ router.get('/', (req, res) => {
       })
   })
 
-  //*******************Make new
-  // router.post('/', (req, res) => {
-  //   db.createNewNoteDB(req.body)
-  //     .then((data) => {
-  //       res.json(data)
-  //     })
-  //     .catch((err) => {
-  //       res.status(500).send(err.message)
-  //     })
-  // })
-
-  
+ 
   router.post('/', checkJwt, (req: JwtRequest, res) => {
-    const { title,  description, category} = req.body
+    const { title,  description, category, link, image} = req.body
 
     const auth0Id = req.auth?.sub
     //get this info from the token
-    //The checkJwt middleware function decodes and verifies the JWT token's signature and adds the authenticated user's identity information to the req object as req.auth.
+    //The checkJwt middleware function decodes and verifies the JWT token's signature 
+    //and adds the authenticated user's identity information to the req object as req.auth.
 
     if (!auth0Id) {
       console.error('No auth0Id')
@@ -55,6 +45,8 @@ router.get('/', (req, res) => {
     const newNote: UserData = {
       title,
       description,
+      link,
+      image,
       category,
       added_by_user: auth0Id  
     }
@@ -68,29 +60,13 @@ router.get('/', (req, res) => {
       })
   })
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 
   //*******************Edit existing
 
   router.patch('/:id', (req, res) => {
-    const {title,description,category,group_id,added_by_user,} = req.body
-    const data = {title,description,category,group_id,added_by_user}
+    const {title,description,category,group_id,added_by_user,link, image} = req.body
+    const data = {title,description,category,group_id,added_by_user, link, image}
     const id = Number(req.params.id)
   
     db.updateNoteDB(id, data)
