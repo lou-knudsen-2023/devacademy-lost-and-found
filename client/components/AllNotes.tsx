@@ -30,13 +30,16 @@ export function AllNotes(){
   const userNotes = notes.filter((note) => note.added_by_user === user?.sub);
 
   return (
-    <div className="note-wrapper">
+    <>
+    <div className="notes-wrapper">
     {userNotes.map((note) => (
         //Pass the refreshList function as a prop to the SingleNote component
         <SingleNote key={note.id} note={note} showButton={true} refreshList={refreshList}/>
       ))}
-     <AddNote refreshList={refreshList} />
-
     </div>
+    <div>
+           <AddNote refreshList={refreshList} />
+    </div>
+    </>
   )
 }

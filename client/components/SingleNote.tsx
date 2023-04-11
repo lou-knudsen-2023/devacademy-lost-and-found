@@ -31,14 +31,16 @@ const handleDel = () => {
 }
 
   return (
-    <div>
-      <h3>{note.title}</h3>
-      <p>{note.description}</p>
-      <p>Category: {note.category}</p>
-      <p><a href={note.link}>{note.link}</a></p>
-      <div>
-        <img src={note.image} alt={`${note.category} related memory prompt`}/>
+    <div className="each-note-wrapper">
+      { note.title && (<h3>{note.title}</h3>)}
+      { note.description && (<p>Notes: {note.description}</p>)}
+      { note.category && (<p>Category: {note.category}</p>)}
+      { note.link && (<p>Link: <a href={note.link}>{note.link}</a></p>)}
+      {note.image && (
+      <div className="note-image-wrapper">
+        <img src={`data:image/jpeg;base64,${note.image}`} alt={`${note.category} related prompt`} />
       </div>
+      )}
       {showButton && <button onClick={handleClick}>Edit Note</button>}
       <button className="del_button" onClick={handleDel}>Delete</button>
     </div>

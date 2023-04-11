@@ -1,11 +1,11 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { makeNewAPI } from '../apis/notesAPI';
-import { NotesData } from '../../models/NotesMods';
-import { useAuth0 } from '@auth0/auth0-react';
-import * as Base64 from 'base64-arraybuffer';
+import { useState, ChangeEvent, FormEvent } from 'react' 
+import { makeNewAPI } from '../apis/notesAPI' 
+import { NotesData } from '../../models/NotesMods' 
+import { useAuth0 } from '@auth0/auth0-react' 
+import * as Base64 from 'base64-arraybuffer' 
 
 export function AddNote({ refreshList }: { refreshList: () => void }) {
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0()
 
   const [dataForm, setDataForm] = useState({
     title: '',
@@ -13,7 +13,7 @@ export function AddNote({ refreshList }: { refreshList: () => void }) {
     category: '',
     link: '',
     image: '',
-  } as NotesData);
+  } as NotesData) 
 
   const handleUpdate = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,28 +21,30 @@ export function AddNote({ refreshList }: { refreshList: () => void }) {
     setDataForm({
       ...dataForm,
       [e.target.name]: e.target.value,
-    });
-  };
+    }) 
+  } 
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.readAsArrayBuffer(file);
+      const file = e.target.files[0]
+
+
+      const reader = new FileReader()
+      reader.readAsArrayBuffer(file)
       reader.onload = () => {
-        setDataForm({
+          setDataForm({
           ...dataForm,
-          image: Base64.encode(reader.result as ArrayBuffer),
-        });
-      };
+          image: Base64.encode(reader.result as ArrayBuffer)
+        })
+      }
     }
-  };
+  } 
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+    e.preventDefault() 
     try {
-      const token = await getAccessTokenSilently();
-      await makeNewAPI(dataForm, token);
+      const token = await getAccessTokenSilently() 
+      await makeNewAPI(dataForm, token) 
 
       setDataForm({
         title: '',
@@ -50,13 +52,18 @@ export function AddNote({ refreshList }: { refreshList: () => void }) {
         category: '',
         link: '',
         image: '',
-      });
+      })
 
-      refreshList();
+    // reset file input field value
+    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement 
+    fileInput.value = ''
+
+    refreshList() 
+
     } catch (error) {
-      console.error(error);
+      console.error(error) 
     }
-  };
+  } 
 
 
 
@@ -105,5 +112,5 @@ export function AddNote({ refreshList }: { refreshList: () => void }) {
     </>
   ) : (
     <h2 className="title -is-2">Please log in to add a new note.</h2>
-  );
+  ) 
 }
