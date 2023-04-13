@@ -5,7 +5,7 @@
 
 exports.seed = (knex) => {
   return knex('groups').insert([
-    {id: 1, name: 'Group One', },
-    {id: 2, name: 'Group Two', },
+    {id: 3, name: 'Group One', },
+    {id: 4, name: 'Group Two', },
   ]);
 };
