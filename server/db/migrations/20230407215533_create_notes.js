@@ -7,7 +7,7 @@ exports.up = function (knex) {
     table.increments('id').primary()
     table.string('title')
     table.string('description')
-    table.string('image')
+    table.text('image')
     table.string('link')
     table.string('category').defaultTo(null)
     table.string('group_id').defaultTo(null)
