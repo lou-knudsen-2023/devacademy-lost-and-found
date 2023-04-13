@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import * as API from '../apis/notesAPI';
 import * as Models from "../../models/NotesMods";
 import { useNavigate } from 'react-router-dom';
-
+import * as Base64 from 'base64-arraybuffer' 
 
 
 export function EditNote() {
@@ -32,7 +32,7 @@ export function EditNote() {
     description: '',
     category: '',
     link:'',
-    image:''
+    image:undefined
   });
 
   //this fills out the form fields with the current data (and changes being made)
@@ -43,7 +43,7 @@ export function EditNote() {
         description: note.description,
         category: note.category,
         link:note.link,
-        image:note.image
+        image:note.image 
       })
     }
   }, [note])
@@ -60,6 +60,23 @@ export function EditNote() {
       ...dataForm,
       [e.target.name]: e.target.value,
     })
+  }
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0]
+  
+      const reader = new FileReader()
+      reader.readAsArrayBuffer(file)
+      reader.onload = () => {
+        setDataForm({
+          ...dataForm,
+          image: Base64.encode(reader.result as ArrayBuffer)
+        })
+        // clear the input value after setting the Base64-encoded image
+        e.target.value = ''
+      }
+    }
   }
 
     //////submit the data
@@ -92,7 +109,7 @@ export function EditNote() {
           type='file'
           name='image'
           value={dataForm.image}
-          onChange={handleUpdate}
+          onChange={handleImageChange}
         />
 
       <label htmlFor='link'>Link</label>

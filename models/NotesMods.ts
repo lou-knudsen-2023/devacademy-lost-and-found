@@ -2,7 +2,7 @@ export interface NotesData{
     title:string
     description: string
     link:string
-    image:string
+    image?: string | undefined;
     category:string
 }
 
